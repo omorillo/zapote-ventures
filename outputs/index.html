@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zapote Ventures — KI-Souveränität &amp; Governance für den Mittelstand</title>
+<meta name="description" content="Zapote Ventures UG (haftungsbeschränkt): KI-ROI-Workshops, agentische Workflows und Fractional AI Lead für den Mittelstand.">
+<link rel="icon" type="image/svg+xml" href="zapote-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3b1b16;
+    --olive:#63661f;
+    --coral:#b54230;
+    --paper:#f1ecdf;
+    --white:#fffdf9;
+    --muted:#6b5d54;
+    --hair:#e4ddc9;
+    --font-display:'Fraunces', serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  img,svg{display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 20px}}
+
+  /* nav */
+  header{position:sticky;top:0;background:rgba(241,236,223,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair);z-index:10}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand img{height:26px;width:auto}
+  .wordmark{font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-.01em;color:var(--ink)}
+  .wordmark span{color:var(--olive)}
+  .navlinks{display:flex;align-items:center;gap:28px;font-size:14.5px}
+  .navlinks a{text-decoration:none;color:var(--ink);opacity:.8;transition:opacity .15s}
+  .navlinks a:hover{opacity:1}
+  @media(max-width:720px){.navlinks a.hide-mobile{display:none}}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:4px;font-size:14.5px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:transform .15s, box-shadow .15s;cursor:pointer;font-family:var(--font-body)}
+  .btn:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--coral);color:var(--white)}
+  .btn-primary:hover{box-shadow:0 4px 14px rgba(181,66,48,.35)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--white)}
+  .btn-inverse{background:var(--white);color:var(--ink)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  /* hero */
+  .hero{padding:80px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+
+  .ledger{background:var(--white);border:1px solid var(--hair);border-radius:8px;padding:26px 24px;position:relative}
+  .ledger-title{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .ledger-item{display:flex;gap:14px;position:relative;padding-bottom:20px}
+  .ledger-item:last-child{padding-bottom:0}
+  .ledger-line{position:absolute;left:5px;top:14px;bottom:-6px;width:1px;background:var(--hair)}
+  .ledger-item:last-child .ledger-line{display:none}
+  .seed{width:11px;height:11px;border-radius:50% 50% 50% 4px;background:var(--olive);flex-shrink:0;margin-top:4px;position:relative;z-index:1}
+  .ledger-item:last-child .seed{background:var(--coral)}
+  .ledger-date{font-size:12px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:3px}
+  .ledger-text{font-size:14px;line-height:1.5}
+  .ledger-item:last-child .ledger-text{font-weight:500}
+
+  .eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--olive);margin-bottom:18px}
+  h1{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,4.4vw,44px);line-height:1.14;letter-spacing:-.01em;margin-bottom:20px}
+  h1 em{font-style:italic;color:var(--coral)}
+  .lede{font-size:16.5px;color:var(--muted);max-width:46ch;margin-bottom:32px;line-height:1.65}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* trust strip */
+  .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--white)}
+  .strip-inner{display:flex;justify-content:center;gap:40px;padding:16px 0;font-size:12.5px;color:var(--muted);flex-wrap:wrap;text-align:center}
+  .strip-inner b{color:var(--ink);font-weight:500}
+
+  /* services */
+  .section{padding:88px 0}
+  .section-head{max-width:520px;margin-bottom:52px}
+  .section-eyebrow{font-family:var(--font-display);font-style:italic;color:var(--coral);font-size:17px;margin-bottom:8px}
+  h2{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,3vw,32px);letter-spacing:-.01em}
+  .section-sub{color:var(--muted);font-size:15px;margin-top:10px}
+
+  .ladder{position:relative}
+  .rung{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:30px 0;border-top:1px solid var(--hair)}
+  .rung:last-child{border-bottom:1px solid var(--hair)}
+  .rung-num{font-family:var(--font-display);font-size:26px;color:var(--hair);font-weight:500;line-height:1}
+  .rung-body h3{font-family:var(--font-body);font-weight:600;font-size:17px;margin-bottom:6px}
+  .rung-body p{color:var(--muted);font-size:14.5px;max-width:56ch}
+
+  /* excerpt */
+  .excerpt{background:var(--white);border:1px solid var(--hair);border-radius:10px;padding:44px;position:relative}
+  .excerpt-eyebrow{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+  .excerpt h3{font-family:var(--font-display);font-weight:500;font-size:24px;margin-bottom:14px;max-width:26ch}
+  .excerpt p{color:var(--muted);font-size:15px;max-width:60ch;margin-bottom:20px;line-height:1.65}
+  .excerpt a{font-size:14px;font-weight:600;color:var(--coral);text-decoration:none}
+  .excerpt a:hover{text-decoration:underline}
+
+  /* vorträge band */
+  .band{background:var(--ink);color:var(--white);padding:76px 0;text-align:center;position:relative;overflow:hidden}
+  .band h2{color:var(--white)}
+  .band p{color:#d9cfc6;max-width:50ch;margin:14px auto 30px;font-size:15px;line-height:1.65}
+  .band-mark{width:26px;height:26px;border-radius:50% 50% 50% 4px;background:var(--olive);margin:0 auto 22px;position:relative}
+  .band-mark::after{content:"";position:absolute;inset:6px;border-radius:50% 50% 50% 3px;background:var(--coral)}
+
+  footer{padding:32px 0;border-top:1px solid var(--hair)}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:12px}
+  .foot-links{display:flex;gap:20px}
+  .foot-links a{text-decoration:none;color:var(--muted)}
+  .foot-links a:hover{color:var(--ink)}
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{animation:fadeUp .6s ease both}
+    .fade-up.d2{animation-delay:.1s}
+    .fade-up.d3{animation-delay:.2s}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="brand" aria-label="Zapote Ventures Startseite">
+        <img src="zapote-logo.svg" alt="Zapote Ventures Logo">
+        <div class="wordmark">Zapote <span>Ventures</span></div>
+      </a>
+      <div class="navlinks">
+        <a href="#leistungen" class="hide-mobile">Leistungen</a>
+        <a href="#vortraege" class="hide-mobile">Vorträge</a>
+        <a href="#analyse" class="hide-mobile">Analyse</a>
+        <a href="#kontakt" class="btn btn-primary btn-sm">ROI-Workshop</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="ledger fade-up">
+      <div class="ledger-title">Prognose &amp; Realität</div>
+      <div class="ledger-item">
+        <div class="ledger-line"></div>
+        <div class="seed"></div>
+        <div>
+          <div class="ledger-date">September 2025 · AI Summit Hamburg</div>
+          <div class="ledger-text">Panel-Warnung vor Exportkontrollen für KI-Modelle in Europa</div>
+        </div>
+      </div>
+      <div class="ledger-item">
+        <div class="seed"></div>
+        <div>
+          <div class="ledger-date">Juni 2026 · eingetreten</div>
+          <div class="ledger-text">US-Exportkontrollen unterbrechen den Zugang zu führenden KI-Modellen</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up d2">
+      <div class="eyebrow">KI-Souveränität &amp; Governance für den Mittelstand</div>
+      <h1>Ich habe die Abhängigkeit <em>vorhergesagt</em>. Jetzt bauen wir die Antwort darauf.</h1>
+      <p class="lede">Ich identifiziere die Anwendungsfälle, die sich für Sie lohnen, und begleite die Umsetzung, schneller und ohne die teuren Umwege, die ohne Erfahrung entstehen.</p>
+      <div class="cta-row">
+        <a href="#kontakt" class="btn btn-primary">KI-ROI-Workshop buchen</a>
+        <a href="#vortraege" class="btn btn-ghost">Vortrag anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-inner">
+    <span>Panel · <b>AI Summit 2025 Hamburg</b></span>
+    <span>Projekt · <b>LANCOM Systems</b></span>
+    <span>Fokus · <b>EU AI Act Art. 50</b></span>
+  </div>
+</div>
+
+<section class="section" id="leistungen">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Der Weg zur Unabhängigkeit</div>
+      <h2>Drei Stufen, ein Ziel</h2>
+      <p class="section-sub">Vom ersten Check bis zur laufenden strategischen Führung — jede Stufe baut auf der vorherigen auf.</p>
+    </div>
+    <div class="ladder">
+      <div class="rung">
+        <div class="rung-num">01</div>
+        <div class="rung-body">
+          <h3>KI-ROI-Workshop</h3>
+          <p>Anwendungsfälle mit ROI priorisieren und den Weg zur Umsetzung festlegen, ob intern, mit mir oder extern.</p>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="rung-num">02</div>
+        <div class="rung-body">
+          <h3>Agentische Workflows</h3>
+          <p>n8n-basierte Automatisierung, die Ihr Team selbst versteht, betreibt und weiterentwickelt.</p>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="rung-num">03</div>
+        <div class="rung-body">
+          <h3>Fractional AI Lead</h3>
+          <p>Laufende strategische Führung inklusive EU-AI-Act-Compliance, ohne Festanstellung.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="analyse" style="padding-top:0">
+  <div class="wrap">
+    <div class="excerpt">
+      <div class="excerpt-eyebrow">Aktuelle Analyse</div>
+      <h3>Warum Souveränität 2026 kein Nischenthema mehr ist</h3>
+      <p>Von der Panel-Prognose in Hamburg bis zu den Exportkontrollen dieses Sommers: eine Einordnung für Entscheider im Mittelstand, was das für Ihre KI-Strategie bedeutet.</p>
+      <a href="#">Artikel lesen →</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="vortraege">
+  <div class="wrap">
+    <div class="band-mark"></div>
+    <h2>Vortrag für Ihren Verband oder Ihre IHK</h2>
+    <p>45-minütige Keynote zu KI-Souveränität, Governance und praktischer Umsetzung — erprobt unter anderem bei der IHK Großhandel.</p>
+    <a href="mailto:oscar.morillo@zapote.de?subject=Vortragsanfrage" class="btn btn-inverse">Vortrag anfragen</a>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap foot-inner">
+    <span>© Zapote Ventures UG (haftungsbeschränkt) · Berlin</span>
+    <div class="foot-links">
+      <!-- TODO: LinkedIn-URL eintragen, sobald Profil/Unternehmensseite steht -->
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:oscar.morillo@zapote.de?subject=Anfrage%20Zapote%20Ventures">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
