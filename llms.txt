@@ -1,0 +1,18 @@
+# Zapote Ventures
+
+> Zapote Ventures is a founder-led AI boutique based in Berlin, Germany, focused on Governed Agentic AI for regulated and complex enterprises in DACH (Germany, Austria, Switzerland), Saudi Arabia and the GCC.
+
+Zapote Ventures designs, builds and operationalizes AI agents and intelligent workflows with security, human oversight, auditability and enterprise governance built in from the start. Services span AI opportunity assessment, governance blueprint design (identity, policy enforcement, human-in-the-loop, audit), production pilots, and scaling governance/evaluation capabilities. Target industries include financial services, insurance, healthcare, energy & utilities, and enterprise knowledge management.
+
+Legal entity: Zapote Ventures UG (haftungsbeschränkt), Marschnerstraße 19, 12203 Berlin, Germany. Founder & Managing Director: Oscar Morillo Victoria.
+
+## Pages
+
+- [German / DACH site](https://zapote.de/): Governed Agentic AI services for regulated enterprises in Germany, Austria and Switzerland.
+- [English / Saudi Arabia & GCC site](https://zapote.de/sa/): Governed Agentic AI services for regulated enterprises in Saudi Arabia and the GCC.
+- [Impressum](https://zapote.de/impressum.html): Legal notice (§5 DDG).
+- [Datenschutzerklärung](https://zapote.de/datenschutz.html): Privacy policy (GDPR).
+
+## Contact
+
+- Email: oscar.morillo@zapote.de
