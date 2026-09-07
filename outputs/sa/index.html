@@ -62,7 +62,7 @@
     .journey-item{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--hair)}
     .journey-item:first-of-type{border-top:0}
     .journey-num{font-family:var(--font-display);font-size:23px;color:var(--hair);font-weight:500;line-height:1.2}
-    .journey-item h3{font-size:14.5px;margin-bottom:3px}
+    .journey-item-title{font-size:14.5px;font-weight:600;margin-bottom:3px}
     .journey-item p{font-size:13.5px;color:var(--muted);line-height:1.5}
 
     .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--white)}
@@ -92,11 +92,9 @@
     .card h3{font-size:16px;margin-bottom:8px}
     .card p{font-size:14px;color:var(--muted);line-height:1.6}
 
-    .arch{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:start}
-    @media(max-width:860px){.arch{grid-template-columns:1fr}}
-    .arch-stack{background:var(--ink);color:var(--white);border-radius:10px;padding:28px}
-    .arch-layer{padding:12px 14px;border:1px solid rgba(255,255,255,.18);border-radius:5px;margin-bottom:9px;background:rgba(255,255,255,.035);font-size:14px}
-    .arch-cross{margin-top:14px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:#d9cfc6;line-height:1.7}
+    .architecture-visual{margin:8px 0 40px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .architecture-visual svg{display:block;width:100%;min-width:940px;max-width:1200px;height:auto;margin:0 auto}
+    .arch-copy{max-width:760px}
     .arch-copy p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:18px}
     .arch-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media(max-width:560px){.arch-list{grid-template-columns:1fr}}
@@ -149,14 +147,15 @@
   </div>
 </header>
 
+<main>
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="journey fade-up">
       <div class="journey-title">From opportunity to production</div>
-      <div class="journey-item"><div class="journey-num">01</div><div><h3>Identify</h3><p>Prioritize high-value processes and assess agentic fit.</p></div></div>
-      <div class="journey-item"><div class="journey-num">02</div><div><h3>Govern</h3><p>Define autonomy, identity, policies, controls and human oversight.</p></div></div>
-      <div class="journey-item"><div class="journey-num">03</div><div><h3>Build</h3><p>Implement agents, enterprise integrations and production-grade controls.</p></div></div>
-      <div class="journey-item"><div class="journey-num">04</div><div><h3>Scale</h3><p>Establish reusable governance, evaluation and operating capabilities.</p></div></div>
+      <div class="journey-item"><div class="journey-num">01</div><div><div class="journey-item-title">Identify</div><p>Prioritize high-value processes and assess agentic fit.</p></div></div>
+      <div class="journey-item"><div class="journey-num">02</div><div><div class="journey-item-title">Govern</div><p>Define autonomy, identity, policies, controls and human oversight.</p></div></div>
+      <div class="journey-item"><div class="journey-num">03</div><div><div class="journey-item-title">Build</div><p>Implement agents, enterprise integrations and production-grade controls.</p></div></div>
+      <div class="journey-item"><div class="journey-num">04</div><div><div class="journey-item-title">Scale</div><p>Establish reusable governance, evaluation and operating capabilities.</p></div></div>
     </div>
 
     <div class="fade-up d2">
@@ -233,28 +232,129 @@
       <p class="section-sub">The LLM is only one component. Enterprise-grade agentic AI requires independent controls for identity, authorization, policy enforcement, tool access, monitoring and human oversight.</p>
     </div>
 
-    <div class="arch">
-      <div class="arch-stack">
-        <div class="arch-layer">Users / Enterprise Systems</div>
-        <div class="arch-layer">Identity & Access</div>
-        <div class="arch-layer">Agent / Orchestration</div>
-        <div class="arch-layer">Policy Enforcement</div>
-        <div class="arch-layer">LLM / Model Gateway</div>
-        <div class="arch-layer">Knowledge & Memory</div>
-        <div class="arch-layer">Tool / MCP Layer</div>
-        <div class="arch-layer">ERP · CRM · Core Systems · APIs</div>
-        <div class="arch-cross">Cross-cutting controls: audit · observability · evaluations · security · human oversight</div>
-      </div>
-      <div class="arch-copy">
-        <p>We separate intelligence from control. The model may propose an action, but permissions, business policies and human approval requirements determine whether it is actually executed.</p>
-        <div class="arch-list">
-          <div class="pill">Identity & workload access</div>
-          <div class="pill">Policy enforcement</div>
-          <div class="pill">Human-in-the-loop</div>
-          <div class="pill">Audit & traceability</div>
-          <div class="pill">Evaluation & monitoring</div>
-          <div class="pill">Tool & data boundaries</div>
-        </div>
+    <div class="architecture-visual">
+      <svg viewBox="0 0 1200 780" role="img" aria-labelledby="arch-title-en arch-desc-en">
+        <title id="arch-title-en">Governed Agentic AI architecture</title>
+        <desc id="arch-desc-en">Enterprise architecture showing users and systems entering an agent orchestration layer. The agent uses an LLM model layer, knowledge and memory, and a controlled tool and MCP layer to access enterprise systems. Identity and access management and policy enforcement govern every action. Audit, evaluations, observability, security and human oversight span the architecture.</desc>
+
+        <defs>
+          <marker id="arrow-en" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 Z" fill="#6b5d54"/>
+          </marker>
+          <filter id="shadow-en" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#3b1b16" flood-opacity="0.08"/>
+          </filter>
+        </defs>
+
+        <rect width="1200" height="780" rx="24" fill="#f1ecdf"/>
+
+        <text x="70" y="70" font-family="'IBM Plex Sans', sans-serif" font-size="18" font-weight="600" letter-spacing="1.6" fill="#63661f">GOVERNED AGENTIC AI ARCHITECTURE</text>
+        <text x="70" y="118" font-family="'Fraunces', serif" font-size="36" font-weight="500" fill="#3b1b16">Intelligence is separated from control.</text>
+        <text x="70" y="154" font-family="'IBM Plex Sans', sans-serif" font-size="17" fill="#6b5d54">The model reasons. Identity, policies and enterprise controls determine what the agent is allowed to do.</text>
+
+        <g filter="url(#shadow-en)">
+          <rect x="70" y="225" width="205" height="94" rx="14" fill="#fffdf9" stroke="#e4ddc9" stroke-width="2"/>
+        </g>
+        <circle cx="105" cy="272" r="9" fill="#63661f"/>
+        <text x="130" y="264" font-family="'IBM Plex Sans', sans-serif" font-size="18" font-weight="600" fill="#3b1b16">User / System</text>
+        <text x="130" y="291" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">Goal, request or event</text>
+
+        <g filter="url(#shadow-en)">
+          <rect x="365" y="215" width="295" height="114" rx="16" fill="#fffdf9" stroke="#b54230" stroke-width="2.5"/>
+        </g>
+        <text x="395" y="255" font-family="'IBM Plex Sans', sans-serif" font-size="21" font-weight="600" fill="#3b1b16">Agent / Orchestration</text>
+        <text x="395" y="283" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">Plans steps, manages state,</text>
+        <text x="395" y="305" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">coordinates model and tools</text>
+
+        <g filter="url(#shadow-en)">
+          <rect x="935" y="225" width="195" height="94" rx="14" fill="#fffdf9" stroke="#e4ddc9" stroke-width="2"/>
+        </g>
+        <circle cx="968" cy="272" r="9" fill="#b54230"/>
+        <text x="993" y="264" font-family="'IBM Plex Sans', sans-serif" font-size="18" font-weight="600" fill="#3b1b16">Enterprise</text>
+        <text x="993" y="287" font-family="'IBM Plex Sans', sans-serif" font-size="18" font-weight="600" fill="#3b1b16">Systems</text>
+        <text x="993" y="309" font-family="'IBM Plex Sans', sans-serif" font-size="13" fill="#6b5d54">CRM · ERP · Core apps</text>
+
+        <line x1="275" y1="272" x2="350" y2="272" stroke="#6b5d54" stroke-width="2.2" marker-end="url(#arrow-en)"/>
+        <line x1="660" y1="272" x2="920" y2="272" stroke="#6b5d54" stroke-width="2.2" marker-end="url(#arrow-en)"/>
+        <line x1="470" y1="329" x2="470" y2="382" stroke="#6b5d54" stroke-width="2" marker-end="url(#arrow-en)"/>
+        <line x1="535" y1="329" x2="720" y2="382" stroke="#6b5d54" stroke-width="2" marker-end="url(#arrow-en)"/>
+        <line x1="595" y1="329" x2="990" y2="382" stroke="#6b5d54" stroke-width="2" marker-end="url(#arrow-en)"/>
+        <line x1="990" y1="395" x2="990" y2="334" stroke="#6b5d54" stroke-width="2" marker-end="url(#arrow-en)"/>
+
+        <g filter="url(#shadow-en)">
+          <rect x="365" y="395" width="220" height="126" rx="14" fill="#fffdf9" stroke="#e4ddc9" stroke-width="2"/>
+          <rect x="610" y="395" width="220" height="126" rx="14" fill="#fffdf9" stroke="#e4ddc9" stroke-width="2"/>
+          <rect x="855" y="395" width="275" height="126" rx="14" fill="#fffdf9" stroke="#e4ddc9" stroke-width="2"/>
+        </g>
+
+        <text x="390" y="432" font-family="'IBM Plex Sans', sans-serif" font-size="17" font-weight="600" fill="#3b1b16">LLM / Model Gateway</text>
+        <text x="390" y="458" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">Reasoning, language,</text>
+        <text x="390" y="480" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">classification, generation</text>
+
+        <text x="635" y="432" font-family="'IBM Plex Sans', sans-serif" font-size="17" font-weight="600" fill="#3b1b16">Knowledge &amp; Memory</text>
+        <text x="635" y="458" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">Enterprise knowledge, RAG,</text>
+        <text x="635" y="480" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">context and process state</text>
+
+        <text x="880" y="432" font-family="'IBM Plex Sans', sans-serif" font-size="17" font-weight="600" fill="#3b1b16">Tool / MCP Layer</text>
+        <text x="880" y="458" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">Controlled APIs and actions</text>
+        <text x="880" y="480" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#6b5d54">with least-privilege access</text>
+
+        <g filter="url(#shadow-en)">
+          <rect x="70" y="395" width="255" height="126" rx="14" fill="#3b1b16"/>
+        </g>
+        <text x="95" y="430" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="1.2" fill="#f1ecdf">GOVERNANCE CONTROL PLANE</text>
+        <text x="95" y="463" font-family="'IBM Plex Sans', sans-serif" font-size="17" font-weight="600" fill="#fffdf9">Identity &amp; Access</text>
+        <text x="95" y="488" font-family="'IBM Plex Sans', sans-serif" font-size="14" fill="#d9cfc6">Authentication · RBAC / ABAC</text>
+        <text x="95" y="513" font-family="'IBM Plex Sans', sans-serif" font-size="17" font-weight="600" fill="#fffdf9">Policy Enforcement</text>
+
+        <path d="M325 458 H345 V545 H1140" fill="none" stroke="#b54230" stroke-width="3" stroke-dasharray="8 8"/>
+        <circle cx="470" cy="545" r="5" fill="#b54230"/>
+        <circle cx="720" cy="545" r="5" fill="#b54230"/>
+        <circle cx="990" cy="545" r="5" fill="#b54230"/>
+
+        <text x="70" y="590" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="1.4" fill="#63661f">CONTINUOUS CONTROLS</text>
+        <g filter="url(#shadow-en)">
+          <rect x="70" y="612" width="1060" height="105" rx="16" fill="#fffdf9" stroke="#e4ddc9" stroke-width="2"/>
+        </g>
+
+        <g font-family="'IBM Plex Sans', sans-serif">
+          <text x="105" y="654" font-size="16" font-weight="600" fill="#3b1b16">Audit</text>
+          <text x="105" y="678" font-size="13" fill="#6b5d54">Immutable evidence</text>
+
+          <line x1="250" y1="635" x2="250" y2="695" stroke="#e4ddc9" stroke-width="1"/>
+
+          <text x="285" y="654" font-size="16" font-weight="600" fill="#3b1b16">Evals</text>
+          <text x="285" y="678" font-size="13" fill="#6b5d54">Quality &amp; safety checks</text>
+
+          <line x1="470" y1="635" x2="470" y2="695" stroke="#e4ddc9" stroke-width="1"/>
+
+          <text x="505" y="654" font-size="16" font-weight="600" fill="#3b1b16">Observability</text>
+          <text x="505" y="678" font-size="13" fill="#6b5d54">Tracing · cost · behavior</text>
+
+          <line x1="715" y1="635" x2="715" y2="695" stroke="#e4ddc9" stroke-width="1"/>
+
+          <text x="750" y="654" font-size="16" font-weight="600" fill="#3b1b16">Human Oversight</text>
+          <text x="750" y="678" font-size="13" fill="#6b5d54">Risk-based approvals</text>
+
+          <line x1="950" y1="635" x2="950" y2="695" stroke="#e4ddc9" stroke-width="1"/>
+
+          <text x="985" y="654" font-size="16" font-weight="600" fill="#3b1b16">Security</text>
+          <text x="985" y="678" font-size="13" fill="#6b5d54">Secrets · isolation · DLP</text>
+        </g>
+
+        <text x="70" y="758" font-family="'Fraunces', serif" font-size="17" font-style="italic" fill="#6b5d54">Every agent has an identity · Every action is policy-checked · Autonomy is risk-based · Every decision is auditable</text>
+      </svg>
+    </div>
+
+    <div class="arch-copy">
+      <p>We separate intelligence from control. The model may propose an action, but permissions, business policies and human approval requirements determine whether it is actually executed.</p>
+      <div class="arch-list">
+        <div class="pill">Identity & workload access</div>
+        <div class="pill">Policy enforcement</div>
+        <div class="pill">Human-in-the-loop</div>
+        <div class="pill">Audit & traceability</div>
+        <div class="pill">Evaluation & monitoring</div>
+        <div class="pill">Tool & data boundaries</div>
       </div>
     </div>
   </div>
@@ -339,6 +439,7 @@
     <a href="mailto:oscar.morillo@zapote.de?subject=KSA%20Agentic%20AI%20Inquiry" class="btn btn-inverse">Discuss a use case</a>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap foot-inner">
