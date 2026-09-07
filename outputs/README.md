@@ -5,7 +5,9 @@ Statische Landingpage für Zapote Ventures UG (haftungsbeschränkt), fertig für
 ## Dateien
 
 - `index.html` — Landingpage
-- `impressum.html` — Impressum (§5 TMG); zwei Felder sind als `[PLATZHALTER]` markiert (Registergericht, HRB-Nummer, ggf. USt-IdNr.) — bitte ausfüllen, sobald die UG ins Handelsregister eingetragen ist
+- `impressum.html` — Impressum (§5 DDG)
+- `datenschutz.html` — Datenschutzerklärung (Art. 13 DSGVO)
+- `fonts/` — lokal gehostete Schriftarten (Fraunces, IBM Plex Sans) + `fonts.css`; ersetzt den früheren Google-Fonts-CDN-Aufruf, damit keine Besucher-IPs an Google übertragen werden
 - `zapote-logo.svg` — Logo, referenziert in Nav und als Favicon
 - `CNAME` — trägt `zapote.de` ein, für die eigene Domain
 - `.nojekyll` — deaktiviert Jekyll-Verarbeitung, damit GitHub Pages die Dateien 1:1 ausliefert
@@ -65,8 +67,6 @@ Damit läuft die Seite ausschließlich über `https://zapote.de`.
 
 ## Offene Punkte vor Live-Gang
 
-- [ ] Impressum: Registergericht + HRB-Nummer eintragen, sobald vorhanden
-- [ ] Impressum: USt-IdNr. eintragen, falls beantragt
-- [ ] LinkedIn-Link in `index.html` (Footer) eintragen — aktuell Platzhalter `#`
 - [ ] "Artikel lesen"-Link im Analyse-Abschnitt auf echten Blogbeitrag verlinken, sobald vorhanden
 - [ ] DNS-Einträge bei deinem Domain-Registrar setzen (siehe oben)
+- [ ] Datenschutzerklärung (`datenschutz.html`) fachlich/anwaltlich gegenprüfen lassen, insbesondere falls später Formulare, Analytics oder Cookies hinzukommen
