@@ -56,30 +56,33 @@
   </script>
   <style>
     :root{
-      --ink:#3b1b16;
-      --olive:#63661f;
-      --coral:#b54230;
-      --paper:#f1ecdf;
-      --white:#fffdf9;
-      --muted:#6b5d54;
-      --hair:#e4ddc9;
+      --bg:#241109;
+      --surface:#33190f;
+      --surface-2:#3d2115;
+      --text:#f2ead9;
+      --muted:#c7b09b;
+      --hair:#4a2e1f;
+      --ghost:#5c4030;
+      --olive:#a7ab46;
+      --coral:#c53627;
+      --cream:#f1ecdf;
       --font-display:'Fraunces', serif;
       --font-body:'IBM Plex Sans', sans-serif;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
     a{color:inherit}
     img,svg{display:block}
     .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
     @media(max-width:640px){.wrap{padding:0 20px}}
 
-    header{position:sticky;top:0;background:rgba(241,236,223,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair);z-index:10}
+    header{position:sticky;top:0;background:rgba(36,17,9,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair);z-index:10}
     nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:36px}
     .brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
     .brand img{height:52.7px;width:auto}
     .navlinks{display:flex;align-items:center;gap:22px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
-    .navlinks a{text-decoration:none;color:var(--ink);opacity:.82;transition:opacity .15s}
+    .navlinks a{text-decoration:none;color:var(--text);opacity:.82;transition:opacity .15s}
     .navlinks a:hover{opacity:1}
     @media(max-width:980px){nav{gap:24px}.brand img{height:24.3px}.navlinks{gap:18px}}
     @media(max-width:860px){.navlinks a.hide-mobile{display:none}}
@@ -88,11 +91,12 @@
     .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:4px;font-size:14.5px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:transform .15s, box-shadow .15s;cursor:pointer;font-family:var(--font-body)}
     .btn:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
     .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--coral);color:var(--white)}
-    .btn-primary:hover{box-shadow:0 4px 14px rgba(181,66,48,.35)}
-    .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-    .btn-ghost:hover{background:var(--ink);color:var(--white)}
-    .btn-inverse{background:var(--white);color:var(--ink)}
+    .btn-primary{background:var(--coral);color:var(--cream)}
+    .btn-primary:hover{box-shadow:0 4px 14px rgba(197,54,39,.4)}
+    .btn-ghost{background:transparent;color:var(--text);border-color:var(--text)}
+    .btn-ghost:hover{background:var(--text);color:var(--bg)}
+    .btn-ghost-light{background:transparent;color:var(--bg);border-color:var(--bg)}
+    .btn-ghost-light:hover{background:var(--bg);color:var(--cream)}
     .btn-sm{padding:14px 20px;font-size:13.5px}
 
     .hero{padding:82px 0 70px}
@@ -101,23 +105,25 @@
     .eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--olive);margin-bottom:18px}
     h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,4.8vw,50px);line-height:1.1;letter-spacing:-.015em;margin-bottom:20px}
     h1 em{font-style:italic;color:var(--coral)}
-    .lede{font-size:16.5px;color:var(--muted);max-width:50ch;margin-bottom:32px;line-height:1.65}
+    .lede{font-size:16.5px;color:var(--muted);max-width:50ch;margin-bottom:22px;line-height:1.65}
+    .audience-line{font-size:13.5px;color:var(--muted);max-width:52ch;margin-bottom:32px;line-height:1.6;padding-left:14px;border-left:2px solid var(--olive)}
+    .audience-line b{color:var(--olive);font-weight:600}
     .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 
-    .journey{background:var(--white);border:1px solid var(--hair);border-radius:10px;padding:26px 24px}
+    .journey{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:26px 24px}
     .journey-title{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
     .journey-item{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--hair)}
     .journey-item:first-of-type{border-top:0}
-    .journey-num{font-family:var(--font-display);font-size:23px;color:var(--hair);font-weight:500;line-height:1.2}
+    .journey-num{font-family:var(--font-display);font-size:23px;color:var(--ghost);font-weight:500;line-height:1.2}
     .journey-item-title{font-size:14.5px;font-weight:600;margin-bottom:3px}
     .journey-item p{font-size:13.5px;color:var(--muted);line-height:1.5}
 
-    .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--white)}
+    .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--surface)}
     .strip-inner{display:flex;justify-content:center;gap:34px;padding:16px 0;font-size:12.5px;color:var(--muted);flex-wrap:wrap;text-align:center}
-    .strip-inner b{color:var(--ink);font-weight:500}
+    .strip-inner b{color:var(--text);font-weight:500}
 
     .section{padding:88px 0}
-    .section.alt{background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+    .section.alt{background:var(--surface);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
     .section-head{max-width:650px;margin-bottom:48px}
     .section-eyebrow{font-family:var(--font-display);font-style:italic;color:var(--olive);font-size:17px;margin-bottom:8px}
     h2{font-family:var(--font-display);font-weight:500;font-size:clamp(26px,3.2vw,36px);letter-spacing:-.01em;line-height:1.15}
@@ -126,7 +132,7 @@
     .ladder{position:relative}
     .rung{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:30px 0;border-top:1px solid var(--hair)}
     .rung:last-child{border-bottom:1px solid var(--hair)}
-    .rung-num{font-family:var(--font-display);font-size:26px;color:var(--hair);font-weight:500;line-height:1}
+    .rung-num{font-family:var(--font-display);font-size:26px;color:var(--ghost);font-weight:500;line-height:1}
     .rung-body h3{font-size:17px;margin-bottom:6px}
     .rung-body p{color:var(--muted);font-size:14.5px;max-width:70ch}
     .deliverable{margin-top:9px;font-size:13.5px;color:var(--olive);font-weight:600}
@@ -134,36 +140,52 @@
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     @media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
     @media(max-width:640px){.cards{grid-template-columns:1fr}}
-    .card{background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:24px}
-    .alt .card{background:var(--white)}
+    .card{background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:24px}
+    .alt .card{background:var(--surface-2)}
+    .card-icon{width:44px;height:44px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    .alt .card-icon{background:var(--bg)}
+    .card-icon svg{width:23px;height:23px}
     .card h3{font-size:16px;margin-bottom:8px}
     .card p{font-size:14px;color:var(--muted);line-height:1.6}
 
-    .architecture-visual{margin:8px 0 40px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .architecture-visual{margin:8px 0 40px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:24px;box-shadow:0 24px 64px -28px rgba(0,0,0,.7)}
     .architecture-visual svg{display:block;width:100%;min-width:940px;max-width:1200px;height:auto;margin:0 auto}
     .arch-copy{max-width:760px}
     .arch-copy p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:18px}
     .arch-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media(max-width:560px){.arch-list{grid-template-columns:1fr}}
-    .pill{border:1px solid var(--hair);background:var(--white);border-radius:6px;padding:12px 14px;font-size:13.5px}
+    .pill{border:1px solid var(--hair);background:var(--surface);border-radius:6px;padding:12px 14px;font-size:13.5px}
 
-    .ksa-box{background:var(--ink);color:var(--white);border-radius:12px;padding:42px}
-    .ksa-box p{color:#d9cfc6;max-width:70ch;line-height:1.7;margin-top:12px}
+    .ksa-box{background:var(--surface-2);border:1px solid var(--hair);border-radius:12px;padding:42px}
+    .ksa-box p{color:var(--muted);max-width:70ch;line-height:1.7;margin-top:12px}
     .ksa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
     @media(max-width:800px){.ksa-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){.ksa-grid{grid-template-columns:1fr}}
-    .ksa-item{border:1px solid rgba(255,255,255,.18);padding:16px;border-radius:6px;font-size:13.5px;color:#f0e9e2}
+    .ksa-item{border:1px solid var(--hair);padding:16px;border-radius:6px;font-size:13.5px;color:var(--text)}
 
-    .band{background:var(--ink);color:var(--white);padding:76px 0;text-align:center;position:relative;overflow:hidden}
-    .band h2{color:var(--white)}
-    .band p{color:#d9cfc6;max-width:58ch;margin:14px auto 30px;font-size:15px;line-height:1.65}
+    .about-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;margin-bottom:44px}
+    @media(max-width:700px){.about-grid{grid-template-columns:1fr}}
+    .avatar-placeholder{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--olive),var(--coral));color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:27px;font-weight:500;margin-bottom:14px}
+    .person-name{font-weight:600;font-size:15.5px}
+    .person-role{color:var(--muted);font-size:13px;margin-bottom:16px}
+    .fact-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .fact-list li{font-size:13px;color:var(--muted);padding-left:14px;position:relative}
+    .fact-list li::before{content:"–";position:absolute;left:0;color:var(--olive)}
+    .about-bio p{color:var(--text);font-size:15.5px;line-height:1.75;max-width:64ch}
+    .about-bio p+p{margin-top:14px}
+
+    .band{background:var(--cream);color:var(--bg);padding:76px 0;text-align:center;position:relative;overflow:hidden}
+    .band h2{color:var(--bg)}
+    .band p{color:rgba(36,17,9,.72);max-width:58ch;margin:14px auto 30px;font-size:15px;line-height:1.65}
     .band-mark{width:27px;height:auto;display:block;margin:0 auto 22px}
+    .band .cta-row{justify-content:center;align-items:center}
+    .band-fallback{font-size:13.5px;color:rgba(36,17,9,.6)}
 
     footer{padding:32px 0;border-top:1px solid var(--hair)}
     .foot-inner{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:12px}
     .foot-links{display:flex;gap:20px;flex-wrap:wrap}
     .foot-links a{text-decoration:none;color:var(--muted)}
-    .foot-links a:hover{color:var(--ink)}
+    .foot-links a:hover{color:var(--text)}
 
     @media (prefers-reduced-motion: no-preference){
       .fade-up{animation:fadeUp .6s ease both}
@@ -178,15 +200,15 @@
   <div class="wrap">
     <nav>
       <a href="index.html" class="brand" aria-label="Zapote Ventures Startseite">
-        <img src="zapote-logo-header.svg" alt="Zapote Ventures Logo">
+        <img src="zapote-logo-header-light.svg" alt="Zapote Ventures Logo">
       </a>
       <div class="navlinks">
         <a href="#leistungen" class="hide-mobile">Leistungen</a>
         <a href="#governance" class="hide-mobile">Governance</a>
         <a href="#branchen" class="hide-mobile">Branchen</a>
-        <a href="#dach" class="hide-mobile">DACH</a>
+        <a href="#about" class="hide-mobile">Über uns</a>
         <a href="sa/">Saudi Arabia / EN</a>
-        <a href="#kontakt" class="btn btn-primary btn-sm">Use Case besprechen</a>
+        <a href="#kontakt" class="btn btn-primary btn-sm">Termin buchen</a>
       </div>
     </nav>
   </div>
@@ -207,8 +229,9 @@
       <div class="eyebrow">Governed Agentic AI für regulierte Unternehmen</div>
       <h1>Von der AI Opportunity zur <em>kontrollierten Produktion.</em></h1>
       <p class="lede">Wir konzipieren, bauen und operationalisieren KI-Agenten und intelligente Workflows mit Security, Human Oversight, Auditierbarkeit und Enterprise Governance von Anfang an.</p>
+      <p class="audience-line"><b>Für wen:</b> Financial Services, Versicherungen, Energie &amp; Utilities und Healthcare-Administration — Unternehmen mit eigener Risk-/Compliance-Funktion, die einen ersten Agentic-AI-Use-Case governance-konform in Produktion bringen wollen.</p>
       <div class="cta-row">
-        <a href="#kontakt" class="btn btn-primary">Ersten Use Case besprechen</a>
+        <a href="#kontakt" class="btn btn-primary">Termin buchen</a>
         <a href="#governance" class="btn btn-ghost">Unseren Ansatz ansehen</a>
       </div>
     </div>
@@ -414,12 +437,30 @@
     </div>
 
     <div class="cards">
-      <div class="card"><h3>Financial Services</h3><p>Dokumentenverarbeitung, Onboarding, interne Serviceprozesse, Kreditfallvorbereitung, Ausnahmebehandlung und Compliance-Unterstützung.</p></div>
-      <div class="card"><h3>Versicherungen & FinTech</h3><p>Vorgangsbearbeitung, Wissenszugriff, Dokumentenanalyse und kontrollierte Automatisierung über mehrere Systeme.</p></div>
-      <div class="card"><h3>Healthcare</h3><p>Administrative Workflows, Knowledge Retrieval und human-reviewed Unterstützung in sensiblen Prozessen.</p></div>
-      <div class="card"><h3>Energie & Utilities</h3><p>Knowledge Automation, interne Operations, Compliance-Workflows und kontrollierte Multi-System-Automatisierung.</p></div>
-      <div class="card"><h3>Enterprise Knowledge</h3><p>Sichere interne Assistenten auf Basis von Richtlinien, Prozessen und Unternehmensdokumenten statt unkontrollierter Modellantworten.</p></div>
-      <div class="card"><h3>Multi-System Workflows</h3><p>Agenten, die ERP, CRM, E-Mail und interne APIs verbinden – unter klaren Identity-, Policy- und Audit-Kontrollen.</p></div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--olive)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4 21 10"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="5" y1="10" x2="5" y2="19"/><line x1="10" y1="10" x2="10" y2="19"/><line x1="14" y1="10" x2="14" y2="19"/><line x1="19" y1="10" x2="19" y2="19"/><line x1="3" y1="21" x2="21" y2="21"/></svg></div>
+        <h3>Financial Services</h3><p>Dokumentenverarbeitung, Onboarding, interne Serviceprozesse, Kreditfallvorbereitung, Ausnahmebehandlung und Compliance-Unterstützung.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--olive)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Versicherungen & FinTech</h3><p>Vorgangsbearbeitung, Wissenszugriff, Dokumentenanalyse und kontrollierte Automatisierung über mehrere Systeme.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--olive)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-12 2 6h6"/></svg></div>
+        <h3>Healthcare</h3><p>Administrative Workflows, Knowledge Retrieval und human-reviewed Unterstützung in sensiblen Prozessen.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--olive)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h3>Energie & Utilities</h3><p>Knowledge Automation, interne Operations, Compliance-Workflows und kontrollierte Multi-System-Automatisierung.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--olive)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c2-1 5-1 8 1 3-2 6-2 8-1v13c-2-1-5-1-8 1-3-2-6-2-8-1V5z"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
+        <h3>Enterprise Knowledge</h3><p>Sichere interne Assistenten auf Basis von Richtlinien, Prozessen und Unternehmensdokumenten statt unkontrollierter Modellantworten.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--olive)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><line x1="6.8" y1="7.3" x2="10.5" y2="16.2"/><line x1="17.2" y1="7.3" x2="13.5" y2="16.2"/><line x1="7.2" y1="6" x2="16.8" y2="6"/></svg></div>
+        <h3>Multi-System Workflows</h3><p>Agenten, die ERP, CRM, E-Mail und interne APIs verbinden – unter klaren Identity-, Policy- und Audit-Kontrollen.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -427,7 +468,7 @@
 <section class="section alt" id="dach">
   <div class="wrap">
     <div class="ksa-box">
-      <div class="eyebrow" style="color:#d5d8a7;margin-bottom:12px">DACH & regulierte Unternehmen</div>
+      <div class="eyebrow" style="margin-bottom:12px">DACH & regulierte Unternehmen</div>
       <h2>Für europäische Governance- und Compliance-Anforderungen konzipiert</h2>
       <p>Produktive Agentic AI muss nicht nur leistungsfähig sein, sondern in bestehende Security-, Datenschutz-, Risk- und Governance-Strukturen passen. Wir berücksichtigen regulatorische und organisatorische Anforderungen bereits in Architektur und Operating Model.</p>
       <div class="ksa-grid">
@@ -464,10 +505,29 @@
 <section class="section alt" id="about">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Founder-led Expertise</div>
-      <h2>Enterprise AI Strategy, Architecture & Implementation</h2>
+      <div class="section-eyebrow">Über uns</div>
+      <h2>Founder-led. Kein Layer zwischen Ihnen und der Umsetzung.</h2>
       <p class="section-sub">Zapote Ventures ist eine founder-led AI Boutique aus Berlin mit Fokus auf Governed Agentic AI für regulierte und komplexe Unternehmen in DACH, Saudi-Arabien und dem GCC.</p>
     </div>
+
+    <!-- Platzhalter: avatar-placeholder zeigt Initialen bis ein echtes Foto vorliegt -->
+    <div class="about-grid">
+      <div class="about-person fade-up">
+        <div class="avatar-placeholder">OM</div>
+        <div class="person-name">Oscar Morillo Victoria</div>
+        <div class="person-role">Gründer &amp; Managing Director</div>
+        <ul class="fact-list">
+          <li>Informatik-Hintergrund, Berlin</li>
+          <li>Aufbau von ML-/Data-Teams in regulierten und datensensiblen Branchen</li>
+          <li>Fokus: Governed Agentic AI, DACH &amp; GCC</li>
+        </ul>
+      </div>
+      <div class="about-bio">
+        <p>Oscar gründete Zapote Ventures, um Unternehmen genau die Lücke zu schließen, an der die meisten Agentic-AI-Initiativen scheitern: den Weg vom Pilotprojekt in einen governance-fähigen Produktionsbetrieb.</p>
+        <p>Als direkter Ansprechpartner – ohne Layer aus Junior-Beratern zwischen Erstgespräch und Umsetzung – bringt er technische Architekturverantwortung und ein klares Verständnis regulatorischer Anforderungen in jedes Projekt ein.</p>
+      </div>
+    </div>
+
     <div class="cards">
       <div class="card"><h3>Strategie</h3><p>Use-Case-Identifikation, Priorisierung, AI Operating Models und Executive Advisory.</p></div>
       <div class="card"><h3>Architektur</h3><p>Agentic Workflows, Governance Architecture, Enterprise-Integrationen und kontrollierte Deployment-Patterns.</p></div>
@@ -480,11 +540,16 @@
   <div class="wrap">
     <svg class="band-mark" viewBox="155.85 53.42 36.21 44.34" aria-hidden="true">
       <path fill="#616605" d="M174,58.17a17.78,17.78,0,0,0-3,.29l-.83-3.54-3.42.8.86,3.65c-6.27,2.41-10.62,8.24-10.24,15.15C158,88,178.19,96.26,178.19,96.26S190.56,87,190.56,74.52A16.31,16.31,0,0,0,174,58.17Z"/>
-      <path fill="#c53627" stroke="#fffdf9" stroke-width="1.22" d="M176.91,87.2s-7.17-3.69-8.8-10.18,2.95-13,2.95-13,7,3.64,8.66,10.12S176.91,87.2,176.91,87.2Z"/>
+      <path fill="#c53627" stroke="#241109" stroke-width="1.22" d="M176.91,87.2s-7.17-3.69-8.8-10.18,2.95-13,2.95-13,7,3.64,8.66,10.12S176.91,87.2,176.91,87.2Z"/>
     </svg>
     <h2>Bereit für den ersten produktionsfähigen Agentic-AI-Use-Case?</h2>
     <p>Starten Sie mit einem fokussierten Gespräch über Ihren Prozess, Ihr Risikoprofil und Ihre IT-Landschaft. Gemeinsam klären wir, ob Agentic AI der richtige Ansatz ist und was für einen sicheren Produktionsbetrieb erforderlich ist.</p>
-    <a href="mailto:oscar.morillo@zapote.de?subject=Anfrage%20Governed%20Agentic%20AI" class="btn btn-inverse">Use Case besprechen</a>
+    <div class="cta-row">
+      <!-- Platzhalter: durch echten Calendly-Link ersetzen, z.B. https://calendly.com/dein-benutzername/intro-gespraech -->
+      <a href="https://calendly.com/zapote-ventures/intro-gespraech" class="btn btn-primary" target="_blank" rel="noopener">Termin buchen</a>
+      <a href="mailto:oscar.morillo@zapote.de?subject=Anfrage%20Governed%20Agentic%20AI" class="btn btn-ghost-light">Per E-Mail anfragen</a>
+    </div>
+    <p class="band-fallback" style="margin-top:18px">Oder direkt: oscar.morillo@zapote.de</p>
   </div>
 </section>
 </main>
