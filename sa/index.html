@@ -165,7 +165,8 @@
 
     .about-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;margin-bottom:44px}
     @media(max-width:700px){.about-grid{grid-template-columns:1fr}}
-    .avatar-placeholder{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--olive),var(--coral));color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:27px;font-weight:500;margin-bottom:14px}
+    .avatar-photo{width:100%;max-width:176px;border-radius:8px;overflow:hidden;margin-bottom:14px;border:1px solid var(--hair)}
+    .avatar-photo img{width:100%;height:auto;display:block}
     .person-name{font-weight:600;font-size:15.5px}
     .person-role{color:var(--muted);font-size:13px;margin-bottom:16px}
     .fact-list{list-style:none;display:flex;flex-direction:column;gap:8px}
@@ -510,10 +511,9 @@
       <p class="section-sub">Zapote Ventures is a founder-led AI boutique based in Germany, focused on governed agentic AI for regulated enterprises in DACH, Saudi Arabia and the GCC.</p>
     </div>
 
-    <!-- Placeholder: avatar-placeholder shows initials until a real photo is available -->
     <div class="about-grid">
       <div class="about-person fade-up">
-        <div class="avatar-placeholder">OM</div>
+        <div class="avatar-photo"><img src="../profile-picture.png" alt="Oscar Morillo Victoria"></div>
         <div class="person-name">Oscar Morillo Victoria</div>
         <div class="person-role">Founder &amp; Managing Director</div>
         <ul class="fact-list">
@@ -545,8 +545,7 @@
     <h2>Ready to identify your first production-grade agentic AI use case?</h2>
     <p>Start with a focused conversation around your process, risk profile and enterprise environment. We will help determine whether agentic AI is the right approach and what it takes to move safely into production.</p>
     <div class="cta-row">
-      <!-- Placeholder: replace with your real Calendly link, e.g. https://calendly.com/your-username/intro-call -->
-      <a href="https://calendly.com/zapote-ventures/intro-call" class="btn btn-primary" target="_blank" rel="noopener">Book a call</a>
+      <a href="https://calendly.com/oscar-morillo-zapote/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a call</a>
       <a href="mailto:oscar.morillo@zapote.de?subject=KSA%20Agentic%20AI%20Inquiry" class="btn btn-ghost-light">Email us</a>
     </div>
     <p class="band-fallback" style="margin-top:18px">Or directly: oscar.morillo@zapote.de</p>

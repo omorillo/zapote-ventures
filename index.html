@@ -165,7 +165,8 @@
 
     .about-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;margin-bottom:44px}
     @media(max-width:700px){.about-grid{grid-template-columns:1fr}}
-    .avatar-placeholder{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--olive),var(--coral));color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:27px;font-weight:500;margin-bottom:14px}
+    .avatar-photo{width:100%;max-width:176px;border-radius:8px;overflow:hidden;margin-bottom:14px;border:1px solid var(--hair)}
+    .avatar-photo img{width:100%;height:auto;display:block}
     .person-name{font-weight:600;font-size:15.5px}
     .person-role{color:var(--muted);font-size:13px;margin-bottom:16px}
     .fact-list{list-style:none;display:flex;flex-direction:column;gap:8px}
@@ -510,10 +511,9 @@
       <p class="section-sub">Zapote Ventures ist eine founder-led AI Boutique aus Berlin mit Fokus auf Governed Agentic AI für regulierte und komplexe Unternehmen in DACH, Saudi-Arabien und dem GCC.</p>
     </div>
 
-    <!-- Platzhalter: avatar-placeholder zeigt Initialen bis ein echtes Foto vorliegt -->
     <div class="about-grid">
       <div class="about-person fade-up">
-        <div class="avatar-placeholder">OM</div>
+        <div class="avatar-photo"><img src="profile-picture.png" alt="Oscar Morillo Victoria"></div>
         <div class="person-name">Oscar Morillo Victoria</div>
         <div class="person-role">Gründer &amp; Managing Director</div>
         <ul class="fact-list">
@@ -545,8 +545,7 @@
     <h2>Bereit für den ersten produktionsfähigen Agentic-AI-Use-Case?</h2>
     <p>Starten Sie mit einem fokussierten Gespräch über Ihren Prozess, Ihr Risikoprofil und Ihre IT-Landschaft. Gemeinsam klären wir, ob Agentic AI der richtige Ansatz ist und was für einen sicheren Produktionsbetrieb erforderlich ist.</p>
     <div class="cta-row">
-      <!-- Platzhalter: durch echten Calendly-Link ersetzen, z.B. https://calendly.com/dein-benutzername/intro-gespraech -->
-      <a href="https://calendly.com/zapote-ventures/intro-gespraech" class="btn btn-primary" target="_blank" rel="noopener">Termin buchen</a>
+      <a href="https://calendly.com/oscar-morillo-zapote/30min" class="btn btn-primary" target="_blank" rel="noopener">Termin buchen</a>
       <a href="mailto:oscar.morillo@zapote.de?subject=Anfrage%20Governed%20Agentic%20AI" class="btn btn-ghost-light">Per E-Mail anfragen</a>
     </div>
     <p class="band-fallback" style="margin-top:18px">Oder direkt: oscar.morillo@zapote.de</p>
