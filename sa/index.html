@@ -77,13 +77,13 @@
     header{position:sticky;top:0;background:rgba(241,236,223,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair);z-index:10}
     nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:36px}
     .brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-    .brand img{height:104px;width:auto}
+    .brand img{height:52.7px;width:auto}
     .navlinks{display:flex;align-items:center;gap:22px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
     .navlinks a{text-decoration:none;color:var(--ink);opacity:.82;transition:opacity .15s}
     .navlinks a:hover{opacity:1}
-    @media(max-width:980px){nav{gap:24px}.brand img{height:48px}.navlinks{gap:18px}}
+    @media(max-width:980px){nav{gap:24px}.brand img{height:24.3px}.navlinks{gap:18px}}
     @media(max-width:860px){.navlinks a.hide-mobile{display:none}}
-    @media(max-width:640px){nav{padding:12px 0}.brand img{height:44px}.navlinks{gap:12px}}
+    @media(max-width:640px){nav{padding:12px 0}.brand img{height:22.3px}.navlinks{gap:12px}}
 
     .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:4px;font-size:14.5px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:transform .15s, box-shadow .15s;cursor:pointer;font-family:var(--font-body)}
     .btn:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
@@ -119,7 +119,7 @@
     .section{padding:88px 0}
     .section.alt{background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
     .section-head{max-width:650px;margin-bottom:48px}
-    .section-eyebrow{font-family:var(--font-display);font-style:italic;color:var(--coral);font-size:17px;margin-bottom:8px}
+    .section-eyebrow{font-family:var(--font-display);font-style:italic;color:var(--olive);font-size:17px;margin-bottom:8px}
     h2{font-family:var(--font-display);font-weight:500;font-size:clamp(26px,3.2vw,36px);letter-spacing:-.01em;line-height:1.15}
     .section-sub{color:var(--muted);font-size:15px;margin-top:12px;line-height:1.65;max-width:62ch}
 
@@ -157,8 +157,7 @@
     .band{background:var(--ink);color:var(--white);padding:76px 0;text-align:center;position:relative;overflow:hidden}
     .band h2{color:var(--white)}
     .band p{color:#d9cfc6;max-width:58ch;margin:14px auto 30px;font-size:15px;line-height:1.65}
-    .band-mark{width:26px;height:26px;border-radius:50% 50% 50% 4px;background:var(--olive);margin:0 auto 22px;position:relative}
-    .band-mark::after{content:"";position:absolute;inset:6px;border-radius:50% 50% 50% 3px;background:var(--coral)}
+    .band-mark{width:27px;height:auto;display:block;margin:0 auto 22px}
 
     footer{padding:32px 0;border-top:1px solid var(--hair)}
     .foot-inner{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:12px}
@@ -179,7 +178,7 @@
   <div class="wrap">
     <nav>
       <a href="/sa/" class="brand" aria-label="Zapote Ventures Saudi Arabia home">
-        <img src="../zapote-logo.svg" alt="Zapote Ventures Logo">
+        <img src="../zapote-logo-header.svg" alt="Zapote Ventures Logo">
       </a>
       <div class="navlinks">
         <a href="#services" class="hide-mobile">Services</a>
@@ -479,7 +478,10 @@
 
 <section class="band" id="contact">
   <div class="wrap">
-    <div class="band-mark"></div>
+    <svg class="band-mark" viewBox="155.85 53.42 36.21 44.34" aria-hidden="true">
+      <path fill="#616605" d="M174,58.17a17.78,17.78,0,0,0-3,.29l-.83-3.54-3.42.8.86,3.65c-6.27,2.41-10.62,8.24-10.24,15.15C158,88,178.19,96.26,178.19,96.26S190.56,87,190.56,74.52A16.31,16.31,0,0,0,174,58.17Z"/>
+      <path fill="#c53627" stroke="#fffdf9" stroke-width="1.22" d="M176.91,87.2s-7.17-3.69-8.8-10.18,2.95-13,2.95-13,7,3.64,8.66,10.12S176.91,87.2,176.91,87.2Z"/>
+    </svg>
     <h2>Ready to identify your first production-grade agentic AI use case?</h2>
     <p>Start with a focused conversation around your process, risk profile and enterprise environment. We will help determine whether agentic AI is the right approach and what it takes to move safely into production.</p>
     <a href="mailto:oscar.morillo@zapote.de?subject=KSA%20Agentic%20AI%20Inquiry" class="btn btn-inverse">Discuss a use case</a>
