@@ -25,7 +25,7 @@
   <meta name="twitter:description" content="Zapote Ventures designs and implements governed agentic AI systems for regulated enterprises in Saudi Arabia and the GCC — from opportunity assessment to production.">
   <meta name="twitter:image" content="https://zapote.de/og-image.png">
 
-  <link rel="icon" type="image/svg+xml" href="../zapote-logo.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/zapote-mark.svg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,6 +67,10 @@
       --coral-hover:#a92d21;
       --on-primary:#ffffff;
       --focus:#f2f5f7;
+      --surface-light:#f2f5f7;
+      --text-on-light:#111820;
+      --border-soft:rgba(182,193,204,.22);
+      --border-strong:rgba(242,245,247,.42);
       --font: Arial, Helvetica, sans-serif;
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -75,22 +79,27 @@
     a{color:inherit}
     img,svg{display:block}
     :focus-visible{outline:2px solid var(--focus);outline-offset:4px}
-    .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
     @media(max-width:640px){.wrap{padding:0 20px}}
 
-    header{position:sticky;top:0;background:rgba(17,24,32,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--divider);z-index:10}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:36px}
+    header{position:sticky;top:0;background:var(--surface-light);color:var(--text-on-light);border-bottom:1px solid var(--border-soft);z-index:20}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:36px;min-height:76px}
     .brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-    .brand img{height:52.7px;width:auto}
+    .brand img{width:160px;height:auto}
+    .nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1.5px solid var(--control-border);border-radius:4px;color:var(--text-on-light);cursor:pointer}
     .navlinks{display:flex;align-items:center;gap:22px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
-    .navlinks a{text-decoration:underline;text-decoration-color:rgba(242,245,247,.35);text-underline-offset:4px;color:var(--text);opacity:.82;transition:opacity .15s}
+    .navlinks a{text-decoration:underline;text-decoration-color:rgba(17,24,32,.35);text-underline-offset:4px;color:var(--text-on-light);opacity:.82;transition:opacity .15s}
     .navlinks a:hover{opacity:1;text-decoration-color:currentColor}
-    .navlinks a.btn{text-decoration:none}
-    @media(max-width:980px){nav{gap:24px}.brand img{height:24.3px}.navlinks{gap:18px}}
-    @media(max-width:860px){.navlinks a.hide-mobile{display:none}}
-    @media(max-width:640px){nav{padding:12px 0}.brand img{height:22.3px}.navlinks{gap:12px}}
+    .navlinks a.btn{text-decoration:none;opacity:1}
+    .mobile-menu{position:fixed;inset:0;background:var(--surface-light);color:var(--text-on-light);z-index:15;display:flex;flex-direction:column;gap:4px;padding:92px 24px 32px;overflow-y:auto}
+    .mobile-menu[hidden]{display:none}
+    .mobile-menu a{font-size:16px;padding:14px 4px;color:var(--text-on-light);text-decoration:none;border-bottom:1px solid var(--border-soft);min-height:44px;display:flex;align-items:center}
+    .mobile-menu a.btn{border-bottom:0;margin-top:14px;justify-content:center}
+    @media(max-width:980px){nav{gap:24px}.navlinks{gap:18px}}
+    @media(max-width:860px){.navlinks{display:none}.nav-toggle{display:inline-flex}}
+    @media(max-width:640px){nav{padding:12px 0;min-height:60px}.brand img{width:120px}}
 
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;min-height:44px;border-radius:4px;font-size:14.5px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:background .15s, transform .15s;cursor:pointer;font-family:var(--font)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 24px;min-height:52px;border-radius:4px;font-size:15px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:background .15s, transform .15s;cursor:pointer;font-family:var(--font)}
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:var(--coral);color:var(--on-primary);border-color:var(--coral)}
     .btn-primary:hover{background:var(--coral-hover);border-color:var(--coral-hover)}
@@ -98,35 +107,54 @@
     .btn-ghost:hover, .btn-ghost-light:hover{background:var(--bg)}
     .btn-sm{padding:13px 20px;font-size:13.5px;min-height:40px}
 
-    .hero{padding:82px 0 70px}
-    .hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+    .hero{padding:88px 0 76px;background-color:var(--bg);background-image:url('../assets/backgrounds/hero-background.svg');background-size:cover;background-position:center;background-repeat:no-repeat}
+    .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
     @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:40px}}
     .eyebrow{font-size:14px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-    h1{font-weight:600;font-size:clamp(34px,5vw,52px);line-height:1.15;letter-spacing:-.015em;margin-bottom:20px}
+    h1{font-weight:600;font-size:clamp(38px,6vw,66px);line-height:1.06;letter-spacing:-.015em;margin-bottom:20px}
     h1 em{font-style:normal;color:inherit}
-    .lede{font-size:16.5px;color:var(--muted);max-width:50ch;margin-bottom:22px;line-height:1.65}
+    .lede{font-size:18px;color:var(--muted);max-width:50ch;margin-bottom:22px;line-height:1.5}
     .audience-line{font-size:14px;color:var(--muted);max-width:52ch;margin-bottom:32px;line-height:1.6;padding-left:14px;border-left:2px solid var(--control-border)}
     .audience-line b{color:var(--text);font-weight:600}
     .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 
-    .journey{background:var(--surface);border:1px solid var(--divider);border-radius:10px;padding:26px 24px}
-    .journey-title{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-    .journey-item{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--divider)}
-    .journey-item:first-of-type{border-top:0}
-    .journey-num{font-size:23px;color:var(--ghost);font-weight:600;line-height:1.2}
-    .journey-item-title{font-size:14.5px;font-weight:600;margin-bottom:3px}
-    .journey-item p{font-size:14px;color:var(--muted);line-height:1.5}
+    .hero-graphic-desktop, .hero-graphic-mobile{width:100%;height:auto}
+    .hero-graphic-desktop{max-width:560px;margin:0 auto}
+    .hero-graphic-mobile{display:none;max-width:320px;margin:44px auto 0}
+    @media(max-width:767px){.hero-graphic-desktop{display:none}.hero-graphic-mobile{display:block}}
 
     .strip{border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);background:var(--surface)}
     .strip-inner{display:flex;justify-content:center;gap:34px;padding:16px 0;font-size:14px;color:var(--muted);flex-wrap:wrap;text-align:center}
     .strip-inner b{color:var(--text);font-weight:500}
 
-    .section{padding:88px 0}
+    .process{background:var(--surface-light);color:var(--text-on-light)}
+    .process .section-eyebrow, .process .section-sub{color:#4a5560}
+    .process h2{color:var(--text-on-light)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .process-step{padding:0 28px;border-left:1px solid var(--border-soft)}
+    .process-step:first-child{border-left:0;padding-left:0}
+    .process-num{font-size:34px;font-weight:700;color:var(--coral);line-height:1;margin-bottom:14px}
+    .process-step h3{font-size:17px;margin-bottom:8px;color:var(--text-on-light)}
+    .process-step p{font-size:14.5px;color:#4a5560;line-height:1.55}
+    @media(max-width:800px){.process-grid{grid-template-columns:1fr}.process-step{border-left:0;border-top:1px solid var(--border-soft);padding:28px 0 0;margin-top:28px}.process-step:first-child{border-top:0;padding-top:0;margin-top:0}}
+
+    .result-flag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border-strong);border-radius:4px;padding:6px 12px;margin-bottom:18px}
+    .result-grid{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:20px;align-items:start;margin-top:12px}
+    @media(max-width:900px){.result-grid{grid-template-columns:1fr}}
+    .result-col{min-width:0}
+    .result-col-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+    .result-col h3{font-size:17px;margin-bottom:8px}
+    .result-col p{font-size:14.5px;color:var(--muted);line-height:1.6}
+    .result-arrow{color:var(--ghost);font-size:22px;align-self:center;justify-self:center}
+    @media(max-width:900px){.result-arrow{transform:rotate(90deg);margin:4px 0}}
+
+    .section{padding:112px 0}
     .section.alt{background:var(--surface);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider)}
     .section-head{max-width:650px;margin-bottom:48px}
     .section-eyebrow{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-    h2{font-weight:600;font-size:clamp(24px,3.4vw,36px);letter-spacing:-.01em;line-height:1.2}
+    h2{font-weight:600;font-size:clamp(28px,3.6vw,42px);letter-spacing:-.01em;line-height:1.2}
     .section-sub{color:var(--muted);font-size:16px;margin-top:12px;line-height:1.65;max-width:62ch}
+    @media(max-width:640px){.section{padding:72px 0}.process{padding:64px 0}}
 
     .ladder{position:relative}
     .rung{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:30px 0;border-top:1px solid var(--divider)}
@@ -152,29 +180,6 @@
     .architecture-frame svg{display:block;width:100%;max-width:1200px;height:auto;margin:0 auto}
     .architecture-caption{color:var(--muted);font-size:14px;margin-top:12px;max-width:70ch}
 
-    .explainer{margin:8px 0 40px;background:var(--surface);border:1px solid var(--divider);border-radius:16px;padding:28px 24px}
-    .explainer-lead{font-size:14px;color:var(--muted);margin-bottom:16px;text-align:center}
-    .explainer-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-    .explainer-tab{font-family:var(--font);font-size:13.5px;font-weight:600;padding:10px 16px;min-height:44px;border-radius:4px;border:1.5px solid var(--control-border);background:var(--bg);color:var(--muted);cursor:pointer;transition:background .15s,color .15s}
-    .explainer-tab:hover{color:var(--text)}
-    .explainer-tab[aria-pressed="true"]{background:var(--control-border);color:var(--bg)}
-    .explainer-svg-wrap{max-width:420px;margin:0 auto}
-    .explainer-svg{display:block;width:100%;height:auto}
-    .explainer-caption{font-size:14px;color:var(--muted);text-align:center;max-width:56ch;margin:20px auto 0;line-height:1.6;min-height:44px}
-    .ex-branch, .ex-outcome{transition:opacity .3s ease}
-    .ex-outcome-box{transition:fill .3s ease, stroke .3s ease}
-    [data-outcome="allowed"] .ex-blocked, [data-outcome="allowed"] .ex-approval{opacity:.35}
-    [data-outcome="approval"] .ex-blocked, [data-outcome="approval"] .ex-allowed{opacity:.35}
-    [data-outcome="blocked"] .ex-approval, [data-outcome="blocked"] .ex-allowed{opacity:.35}
-    [data-outcome="allowed"] .ex-allowed .ex-outcome-box{stroke:var(--text);stroke-width:2.5}
-    [data-outcome="approval"] .ex-approval .ex-outcome-box{stroke:var(--text);stroke-width:2.5}
-    [data-outcome="blocked"] .ex-blocked .ex-outcome-box{stroke:var(--coral);stroke-width:2.5}
-    .ex-pulse{opacity:0}
-    .ex-pulse.play{animation:ex-flow .6s ease forwards}
-    @keyframes ex-flow{0%{offset-distance:0%;opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
-    @media (prefers-reduced-motion: reduce){
-      .explainer *{transition-duration:.01s !important;animation:none !important}
-    }
     .mobile-diagram{display:none}
     @media(min-width:641px){.desktop-diagram .architecture-frame svg{min-width:940px}}
     @media(max-width:640px){.desktop-diagram{display:none}.mobile-diagram{display:block}}
@@ -212,7 +217,9 @@
     .note-text{color:var(--muted);font-size:14px;line-height:1.65;margin-top:28px;max-width:70ch}
 
     footer{padding:32px 0;border-top:1px solid var(--divider)}
-    .foot-inner{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);flex-wrap:wrap;gap:12px}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);flex-wrap:wrap;gap:20px}
+    .foot-brand{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .foot-logo{width:150px;height:auto;opacity:.92}
     .foot-links{display:flex;gap:20px;flex-wrap:wrap}
     .foot-links a{text-decoration:underline;text-decoration-color:rgba(182,193,204,.4);text-underline-offset:3px;color:var(--muted)}
     .foot-links a:hover{color:var(--text);text-decoration-color:currentColor}
@@ -221,6 +228,28 @@
       .fade-up{animation:fadeUp .6s ease both}
       .fade-up.d2{animation-delay:.1s}
       @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+      .gov-graphic.js-animatable .route-active{opacity:0}
+      .gov-graphic.gov-running{animation:gov-fade-in 12s linear infinite}
+      .gov-graphic.gov-running .gov-signal{animation:gov-signal-run 12s linear infinite;opacity:1}
+      .gov-graphic.gov-running .route-active{animation:gov-route-reveal 12s linear infinite}
+      .gov-graphic.gov-running #human-review-branch{animation:gov-branch-pulse 12s linear infinite}
+      .gov-graphic.gov-running #controlled-action{animation:gov-endpoint-activate 12s linear infinite;transform-box:fill-box;transform-origin:center}
+      .gov-graphic.gov-running #identity .node{animation:gov-checkpoint-hit 12s linear infinite}
+      .gov-graphic.gov-running #policy .node, .gov-graphic.gov-running #policy-mobile .node{animation:gov-checkpoint-hit 12s linear infinite;animation-delay:.9s}
+      .gov-graphic.gov-running #human-oversight .node, .gov-graphic.gov-running #human-oversight-mobile .node{animation:gov-checkpoint-hit 12s linear infinite;animation-delay:1.9s}
+      .gov-graphic.gov-running #audit .node, .gov-graphic.gov-running #audit-mobile .node{animation:gov-checkpoint-hit 12s linear infinite;animation-delay:2.84s}
+      .gov-graphic.gov-running #identity-mobile .node{animation:gov-checkpoint-hit 12s linear infinite}
+
+      @keyframes gov-fade-in{0%{opacity:0}5%,100%{opacity:1}}
+      @keyframes gov-signal-run{0%,5%{offset-distance:0%;opacity:0}5.1%{opacity:1}31.6%{offset-distance:100%;opacity:1}38%,100%{offset-distance:100%;opacity:0}}
+      @keyframes gov-route-reveal{0%,37.9%{opacity:0}38.3%,100%{opacity:1}}
+      @keyframes gov-branch-pulse{0%,31.6%,38.3%,100%{opacity:1}35%{opacity:.4}}
+      @keyframes gov-endpoint-activate{0%,38.2%,100%{transform:scale(1)}39%,43%{transform:scale(1.18)}44.1%{transform:scale(1)}}
+      @keyframes gov-checkpoint-hit{0%,100%{stroke:#f2f5f7;stroke-width:1.7}3%{stroke:#c53627;stroke-width:3.2}7%{stroke:#f2f5f7;stroke-width:1.7}}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .gov-graphic *{animation:none !important}
     }
   </style>
 </head>
@@ -230,32 +259,35 @@
   <div class="wrap">
     <nav>
       <a href="/sa/" class="brand" aria-label="Zapote Ventures Saudi Arabia home">
-        <img src="../zapote-logo-dark.svg" alt="Zapote Ventures Logo">
+        <img src="../assets/logo/zapote-logo.svg" alt="Zapote Ventures" width="296" height="155.62">
       </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
       <div class="navlinks">
-        <a href="#services" class="hide-mobile">Services</a>
-        <a href="#governance" class="hide-mobile">Governance</a>
-        <a href="#industries" class="hide-mobile">Industries</a>
-        <a href="#about" class="hide-mobile">About</a>
+        <a href="#services">Services</a>
+        <a href="#governance">Governance</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
         <a href="../index.html">🇩🇪 Deutsch</a>
         <a href="#contact" class="btn btn-primary btn-sm">Book an introductory call</a>
       </div>
     </nav>
+  </div>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <a href="#services">Services</a>
+    <a href="#governance">Governance</a>
+    <a href="#industries">Industries</a>
+    <a href="#about">About</a>
+    <a href="../index.html">🇩🇪 Deutsch</a>
+    <a href="#contact" class="btn btn-primary">Book an introductory call</a>
   </div>
 </header>
 
 <main>
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="journey fade-up">
-      <div class="journey-title">From opportunity to production</div>
-      <div class="journey-item"><div class="journey-num">01</div><div><div class="journey-item-title">Identify</div><p>Prioritize high-value processes and assess agentic fit.</p></div></div>
-      <div class="journey-item"><div class="journey-num">02</div><div><div class="journey-item-title">Govern</div><p>Define autonomy, identity, policies, controls and human oversight.</p></div></div>
-      <div class="journey-item"><div class="journey-num">03</div><div><div class="journey-item-title">Build</div><p>Implement agents, enterprise integrations and production-grade controls.</p></div></div>
-      <div class="journey-item"><div class="journey-num">04</div><div><div class="journey-item-title">Scale</div><p>Establish reusable governance, evaluation and operating capabilities.</p></div></div>
-    </div>
-
-    <div class="fade-up d2">
+    <div class="fade-up">
       <div class="eyebrow">Governed Agentic AI for Regulated Enterprises</div>
       <h1>From AI opportunity to <em>governed production.</em></h1>
       <p class="lede">We design, build and operationalize AI agents and intelligent workflows with security, human oversight, auditability and enterprise governance built in from day one.</p>
@@ -264,6 +296,117 @@
         <a href="#contact" class="btn btn-primary">Book an introductory call · 30 min</a>
         <a href="#governance" class="btn btn-ghost">Explore our approach</a>
       </div>
+
+      <svg class="hero-graphic-mobile gov-graphic" viewBox="0 0 360 560" role="img" aria-labelledby="govm-title-en govm-desc-en">
+        <title id="govm-title-en">Vertical controlled action path for agentic AI</title>
+        <desc id="govm-desc-en">The mobile view shows Identity, Policy, Human Oversight and Audit on a vertical path. If required, a human review is triggered. The approved action ends as a controlled action.</desc>
+        <defs>
+          <style>
+            .label{font:500 16px Inter,Arial,sans-serif;fill:#f2f5f7}.small{font:400 13px Inter,Arial,sans-serif;fill:#b6c1cc}.caption{font:500 11px Inter,Arial,sans-serif;letter-spacing:1.5px;fill:#b6c1cc}.route{fill:none;stroke:#b6c1cc;stroke-width:2}.route-active{fill:none;stroke:#c53627;stroke-width:2.5}.branch{fill:none;stroke:#b6c1cc;stroke-width:1.7;stroke-dasharray:6 7}.node{fill:#111820;stroke:#f2f5f7;stroke-width:1.6}.checkpoint{fill:#f2f5f7}.endpoint{fill:#c53627}.icon{fill:none;stroke:#f2f5f7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+          </style>
+        </defs>
+        <path id="signal-path-mobile" class="route" d="M116 72V442"/>
+        <path class="route-active" d="M116 352V442"/>
+        <g id="identity-mobile" class="control-point">
+          <circle class="node" cx="66" cy="72" r="30"/>
+          <circle class="icon" cx="66" cy="65" r="6"/>
+          <path class="icon" d="M54 85c2-8 22-8 24 0"/>
+          <circle class="checkpoint" cx="116" cy="72" r="7"/>
+          <text class="label" x="142" y="78">Identity</text>
+        </g>
+        <g id="policy-mobile" class="control-point">
+          <circle class="node" cx="66" cy="162" r="30"/>
+          <rect class="icon" x="57" y="148" width="18" height="25" rx="2"/>
+          <path class="icon" d="M61 155h10M61 161h10M61 167h7"/>
+          <circle class="checkpoint" cx="116" cy="162" r="7"/>
+          <text class="label" x="142" y="168">Policy</text>
+        </g>
+        <g id="human-oversight-mobile" class="control-point">
+          <circle class="node" cx="66" cy="252" r="30"/>
+          <circle class="icon" cx="60" cy="245" r="5"/>
+          <circle class="icon" cx="72" cy="248" r="4"/>
+          <path class="icon" d="M50 264c1-7 17-7 19 0M67 264c1-5 12-5 14 0"/>
+          <circle class="checkpoint" cx="116" cy="252" r="7"/>
+          <text class="label" x="142" y="258">Human Oversight</text>
+        </g>
+        <g id="human-review-branch-mobile">
+          <path class="branch" d="M116 252v26c0 18 15 28 34 28h22"/>
+          <circle class="node" cx="184" cy="306" r="9"/>
+          <text class="small" x="202" y="302"><tspan x="202">Human</tspan><tspan x="202" dy="17">review</tspan></text>
+        </g>
+        <g id="audit-mobile" class="control-point">
+          <circle class="node" cx="66" cy="352" r="30"/>
+          <path class="icon" d="M55 365v-8M63 365v-15M71 365v-22M79 365v-29"/>
+          <circle class="checkpoint" cx="116" cy="352" r="7"/>
+          <text class="label" x="142" y="358">Audit</text>
+        </g>
+        <g id="controlled-action-mobile">
+          <circle class="endpoint" cx="116" cy="442" r="11"/>
+          <text class="label" x="142" y="448">Controlled action</text>
+        </g>
+        <text class="caption" x="180" y="526" text-anchor="middle">AUTONOMY WITHIN DEFINED BOUNDARIES</text>
+        <circle class="gov-signal" r="4.5" fill="#c53627" opacity="0" aria-hidden="true" style="offset-path:path('M116 72V452')"/>
+      </svg>
+    </div>
+
+    <div class="fade-up d2">
+      <svg class="hero-graphic-desktop gov-graphic" viewBox="0 0 840 320" role="img" aria-labelledby="gov-title-en gov-desc-en">
+        <title id="gov-title-en">Controlled action path for agentic AI</title>
+        <desc id="gov-desc-en">A proposed action passes through Identity, Policy, Human Oversight and Audit. If required, it is escalated for human review. The approved action ends as a controlled action.</desc>
+        <defs>
+          <style>
+            .label{font:500 17px Inter,Arial,sans-serif;fill:#f2f5f7}.small{font:400 14px Inter,Arial,sans-serif;fill:#b6c1cc}.caption{font:500 13px Inter,Arial,sans-serif;letter-spacing:2.2px;fill:#b6c1cc}.route{fill:none;stroke:#b6c1cc;stroke-width:2}.route-active{fill:none;stroke:#c53627;stroke-width:2.5}.branch{fill:none;stroke:#b6c1cc;stroke-width:1.7;stroke-dasharray:6 7}.node{fill:#111820;stroke:#f2f5f7;stroke-width:1.7}.checkpoint{fill:#f2f5f7}.endpoint{fill:#c53627}.icon{fill:none;stroke:#f2f5f7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+          </style>
+          <marker id="arrow-red-gov-en" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+            <path d="M0 0 9 4.5 0 9" fill="none" stroke="#c53627" stroke-width="1.5"/>
+          </marker>
+        </defs>
+        <path id="signal-path" class="route" d="M84 164H626"/>
+        <path class="route-active" d="M562 164H676" marker-end="url(#arrow-red-gov-en)"/>
+        <g id="identity" class="control-point" transform="translate(120 0)">
+          <text class="label" x="0" y="24" text-anchor="middle">Identity</text>
+          <circle class="node" cx="0" cy="86" r="34"/>
+          <circle class="icon" cx="0" cy="77" r="7"/>
+          <path class="icon" d="M-13 101c2-9 24-9 26 0"/>
+          <path class="route" d="M0 120V164"/>
+          <circle class="checkpoint" cx="0" cy="164" r="8"/>
+        </g>
+        <g id="policy" class="control-point" transform="translate(280 0)">
+          <text class="label" x="0" y="24" text-anchor="middle">Policy</text>
+          <circle class="node" cx="0" cy="86" r="34"/>
+          <rect class="icon" x="-10" y="70" width="20" height="28" rx="2"/>
+          <path class="icon" d="M-5 78h10M-5 84h10M-5 90h7"/>
+          <path class="route" d="M0 120V164"/>
+          <circle class="checkpoint" cx="0" cy="164" r="8"/>
+        </g>
+        <g id="human-oversight" class="control-point" transform="translate(440 0)">
+          <text class="label" x="0" y="14" text-anchor="middle"><tspan x="0">Human</tspan><tspan x="0" dy="19">Oversight</tspan></text>
+          <circle class="node" cx="0" cy="86" r="34"/>
+          <circle class="icon" cx="-7" cy="78" r="6"/>
+          <circle class="icon" cx="7" cy="81" r="5"/>
+          <path class="icon" d="M-18 99c1-8 19-8 21 0M2 99c1-6 14-6 16 0"/>
+          <path class="route" d="M0 120V164"/>
+          <circle class="checkpoint" cx="0" cy="164" r="8"/>
+        </g>
+        <g id="audit" class="control-point" transform="translate(600 0)">
+          <text class="label" x="0" y="24" text-anchor="middle">Audit</text>
+          <circle class="node" cx="0" cy="86" r="34"/>
+          <path class="icon" d="M-13 100V91M-4 100V82M5 100V73M14 100V64"/>
+          <path class="route" d="M0 120V164"/>
+          <circle class="checkpoint" cx="0" cy="164" r="8"/>
+        </g>
+        <g id="human-review-branch">
+          <path class="branch" d="M440 164v35c0 23 18 35 42 35h30"/>
+          <circle class="node" cx="526" cy="234" r="10"/>
+          <text class="small" x="546" y="239">Human review</text>
+        </g>
+        <g id="controlled-action">
+          <circle class="endpoint" cx="652" cy="164" r="11"/>
+          <text class="label" x="688" y="157"><tspan x="688">Controlled</tspan><tspan x="688" dy="20">action</tspan></text>
+        </g>
+        <text class="caption" x="420" y="298" text-anchor="middle">AUTONOMY WITHIN DEFINED BOUNDARIES</text>
+        <circle class="gov-signal" r="5" fill="#c53627" opacity="0" aria-hidden="true" style="offset-path:path('M84 164H676')"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -271,11 +414,55 @@
 <div class="strip">
   <div class="wrap strip-inner">
     <span><b>Germany-based</b></span>
-    <span><b>KSA & GCC focused</b></span>
-    <span><b>Enterprise AI Architecture</b></span>
-    <span><b>Regulated Industries</b></span>
+    <span><b>DACH &amp; KSA</b></span>
+    <span><b>Governance by Design</b></span>
   </div>
 </div>
+
+<section class="section process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">From opportunity to production</div>
+      <h2>A clear path in four steps</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step"><div class="process-num">01</div><h3>Identify</h3><p>Prioritize high-value processes and assess agentic fit.</p></div>
+      <div class="process-step"><div class="process-num">02</div><h3>Govern</h3><p>Define autonomy, identity, policies, controls and human oversight.</p></div>
+      <div class="process-step"><div class="process-num">03</div><h3>Build</h3><p>Implement agents, enterprise integrations and production-grade controls.</p></div>
+      <div class="process-step"><div class="process-num">04</div><h3>Scale</h3><p>Establish reusable governance, evaluation and operating capabilities.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Illustrative example</div>
+      <h2>From starting point to a provable outcome</h2>
+      <p class="section-sub">Once an approved client case with verifiable results is available, we will replace this section with real figures.</p>
+    </div>
+    <span class="result-flag">Illustrative example — not a real client</span>
+    <div class="result-grid">
+      <div class="result-col">
+        <div class="result-col-label">Starting point</div>
+        <h3>Manual, inconsistent approval processes</h3>
+        <p>A recurring process runs across multiple systems without a consistent authorization and approval logic.</p>
+      </div>
+      <div class="result-arrow" aria-hidden="true">→</div>
+      <div class="result-col">
+        <div class="result-col-label">Intervention</div>
+        <h3>Governance blueprint &amp; production pilot</h3>
+        <p>Identity, policy and human-oversight controls defined and implemented production-grade in a bounded pilot.</p>
+      </div>
+      <div class="result-arrow" aria-hidden="true">→</div>
+      <div class="result-col">
+        <div class="result-col-label">Outcome</div>
+        <h3>Traceable, controlled processing</h3>
+        <p>Illustrative target state: end-to-end auditability and defined approval paths. A metric follows once a real case is approved.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="services">
   <div class="wrap">
@@ -350,64 +537,6 @@
       <div class="section-eyebrow">Governance by design</div>
       <h2>Governance by architecture, not by prompt</h2>
       <p class="section-sub">The LLM is only one component. Enterprise-grade agentic AI requires independent controls for identity, authorization, policy enforcement, tool access, monitoring and human oversight.</p>
-    </div>
-
-    <div class="explainer">
-      <p class="explainer-lead">How a proposed action is processed:</p>
-      <div class="explainer-tabs" role="group" aria-label="Choose an outcome">
-        <button type="button" class="explainer-tab" data-outcome="allowed" aria-pressed="true" data-caption="Allowed: the action satisfies all permissions and policies and executes through the controlled tool/API layer.">Allowed</button>
-        <button type="button" class="explainer-tab" data-outcome="approval" aria-pressed="false" data-caption="Human approval required: the control layer requires a person to approve the action before it can execute.">Human approval required</button>
-        <button type="button" class="explainer-tab" data-outcome="blocked" aria-pressed="false" data-caption="Blocked: the action violates permissions or policies and is not executed.">Blocked</button>
-      </div>
-      <div class="explainer-svg-wrap">
-        <svg class="explainer-svg" data-outcome="allowed" viewBox="0 0 340 300" role="img" aria-labelledby="ex-title-en">
-          <title id="ex-title-en">Interactive overview: possible outcomes of a proposed action</title>
-          <defs>
-            <marker id="ex-arrow-en" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-              <path d="M0,0 L9,4.5 L0,9 Z" fill="var(--muted)"/>
-            </marker>
-          </defs>
-          <rect x="20" y="16" width="300" height="64" rx="12" fill="var(--bg)" stroke="var(--control-border)" stroke-width="2"/>
-          <text x="170" y="42" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="var(--text)">Agent</text>
-          <text x="170" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="var(--muted)">proposes an action</text>
-          <line x1="170" y1="80" x2="170" y2="98" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-en)"/>
-          <rect x="20" y="102" width="300" height="64" rx="12" fill="var(--bg)" stroke="var(--control-border)" stroke-width="2"/>
-          <text x="170" y="128" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="var(--text)">Control Layer</text>
-          <text x="170" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="var(--muted)">validates permissions</text>
-          <g class="ex-branch ex-blocked">
-            <line x1="170" y1="166" x2="72" y2="200" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-en)"/>
-            <g class="ex-outcome">
-              <rect class="ex-outcome-box" x="24" y="204" width="92" height="78" rx="10" fill="var(--bg)" stroke="var(--divider)" stroke-width="2"/>
-              <circle cx="70" cy="226" r="10" fill="none" stroke="var(--coral)" stroke-width="2"/>
-              <line x1="63.5" y1="219.5" x2="76.5" y2="232.5" stroke="var(--coral)" stroke-width="2"/>
-              <text x="70" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="var(--text)">Blocked</text>
-            </g>
-          </g>
-          <g class="ex-branch ex-approval">
-            <line x1="170" y1="166" x2="170" y2="200" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-en)"/>
-            <g class="ex-outcome">
-              <rect class="ex-outcome-box" x="124" y="204" width="92" height="78" rx="10" fill="var(--bg)" stroke="var(--divider)" stroke-width="2"/>
-              <circle cx="170" cy="226" r="10" fill="none" stroke="var(--control-border)" stroke-width="2"/>
-              <line x1="170" y1="226" x2="170" y2="220" stroke="var(--control-border)" stroke-width="2" stroke-linecap="round"/>
-              <line x1="170" y1="226" x2="174.5" y2="228.5" stroke="var(--control-border)" stroke-width="2" stroke-linecap="round"/>
-              <text x="170" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="var(--text)">Approval</text>
-            </g>
-          </g>
-          <g class="ex-branch ex-allowed">
-            <line x1="170" y1="166" x2="268" y2="200" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-en)"/>
-            <g class="ex-outcome">
-              <rect class="ex-outcome-box" x="224" y="204" width="92" height="78" rx="10" fill="var(--bg)" stroke="var(--divider)" stroke-width="2"/>
-              <circle cx="270" cy="226" r="10" fill="none" stroke="var(--control-border)" stroke-width="2"/>
-              <path d="M264,226 l4,5 l9,-10" fill="none" stroke="var(--control-border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="270" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="var(--text)">Allowed</text>
-            </g>
-          </g>
-          <circle class="ex-pulse" data-for="blocked" r="4" fill="var(--coral)" style="offset-path:path('M170,166 L72,200')"/>
-          <circle class="ex-pulse" data-for="approval" r="4" fill="var(--text)" style="offset-path:path('M170,166 L170,200')"/>
-          <circle class="ex-pulse" data-for="allowed" r="4" fill="var(--text)" style="offset-path:path('M170,166 L268,200')"/>
-        </svg>
-      </div>
-      <p class="explainer-caption">Allowed: the action satisfies all permissions and policies and executes through the controlled tool/API layer.</p>
     </div>
 
     <figure class="architecture-visual desktop-diagram">
@@ -789,7 +918,10 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <span>© Zapote Ventures UG (haftungsbeschränkt) · Berlin · Saudi Arabia / GCC</span>
+    <div class="foot-brand">
+      <img class="foot-logo" src="../assets/logo/zapote-logo-dark.svg" alt="Zapote Ventures" width="207.27" height="78.92">
+      <span>© Zapote Ventures UG (haftungsbeschränkt) · Berlin · Saudi Arabia / GCC</span>
+    </div>
     <div class="foot-links">
       <a href="../index.html">🇩🇪 Deutsch</a>
       <a href="mailto:oscar.morillo@zapote.de?subject=KSA%20Agentic%20AI%20Inquiry">Contact</a>
@@ -799,6 +931,6 @@
   </div>
 </footer>
 
-<script src="../explainer.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>

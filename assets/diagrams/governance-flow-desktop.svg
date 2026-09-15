@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 320" role="img" aria-labelledby="gov-title gov-desc">
+  <title id="gov-title">Kontrollierter Aktionspfad für Agentic AI</title>
+  <desc id="gov-desc">Eine vorgeschlagene Aktion durchläuft Identity, Policy, Human Oversight und Audit. Falls erforderlich, wird sie zur menschlichen Prüfung abgezweigt. Die freigegebene Aktion endet als kontrollierte Aktion.</desc>
+  <defs>
+    <style>
+      .label{font:500 17px Inter,Arial,sans-serif;fill:#f2f5f7}.small{font:400 14px Inter,Arial,sans-serif;fill:#b6c1cc}.caption{font:500 13px Inter,Arial,sans-serif;letter-spacing:2.2px;fill:#b6c1cc}.route{fill:none;stroke:#b6c1cc;stroke-width:2}.route-active{fill:none;stroke:#c53627;stroke-width:2.5}.branch{fill:none;stroke:#b6c1cc;stroke-width:1.7;stroke-dasharray:6 7}.node{fill:#111820;stroke:#f2f5f7;stroke-width:1.7}.checkpoint{fill:#f2f5f7}.endpoint{fill:#c53627}.icon{fill:none;stroke:#f2f5f7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <marker id="arrow-red" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 9 4.5 0 9" fill="none" stroke="#c53627" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <path id="signal-path" class="route" d="M84 164H626"/>
+  <path class="route-active" d="M562 164H676" marker-end="url(#arrow-red)"/>
+
+  <g id="identity" class="control-point" transform="translate(120 0)">
+    <text class="label" x="0" y="24" text-anchor="middle">Identity</text>
+    <circle class="node" cx="0" cy="86" r="34"/>
+    <circle class="icon" cx="0" cy="77" r="7"/>
+    <path class="icon" d="M-13 101c2-9 24-9 26 0"/>
+    <path class="route" d="M0 120V164"/>
+    <circle class="checkpoint" cx="0" cy="164" r="8"/>
+  </g>
+
+  <g id="policy" class="control-point" transform="translate(280 0)">
+    <text class="label" x="0" y="24" text-anchor="middle">Policy</text>
+    <circle class="node" cx="0" cy="86" r="34"/>
+    <rect class="icon" x="-10" y="70" width="20" height="28" rx="2"/>
+    <path class="icon" d="M-5 78h10M-5 84h10M-5 90h7"/>
+    <path class="route" d="M0 120V164"/>
+    <circle class="checkpoint" cx="0" cy="164" r="8"/>
+  </g>
+
+  <g id="human-oversight" class="control-point" transform="translate(440 0)">
+    <text class="label" x="0" y="14" text-anchor="middle"><tspan x="0">Human</tspan><tspan x="0" dy="19">Oversight</tspan></text>
+    <circle class="node" cx="0" cy="86" r="34"/>
+    <circle class="icon" cx="-7" cy="78" r="6"/>
+    <circle class="icon" cx="7" cy="81" r="5"/>
+    <path class="icon" d="M-18 99c1-8 19-8 21 0M2 99c1-6 14-6 16 0"/>
+    <path class="route" d="M0 120V164"/>
+    <circle class="checkpoint" cx="0" cy="164" r="8"/>
+  </g>
+
+  <g id="audit" class="control-point" transform="translate(600 0)">
+    <text class="label" x="0" y="24" text-anchor="middle">Audit</text>
+    <circle class="node" cx="0" cy="86" r="34"/>
+    <path class="icon" d="M-13 100V91M-4 100V82M5 100V73M14 100V64"/>
+    <path class="route" d="M0 120V164"/>
+    <circle class="checkpoint" cx="0" cy="164" r="8"/>
+  </g>
+
+  <g id="human-review-branch">
+    <path class="branch" d="M440 164v35c0 23 18 35 42 35h30"/>
+    <circle class="node" cx="526" cy="234" r="10"/>
+    <text class="small" x="546" y="239">Menschliche Prüfung</text>
+  </g>
+
+  <g id="controlled-action">
+    <circle class="endpoint" cx="652" cy="164" r="11"/>
+    <text class="label" x="688" y="157"><tspan x="688">Kontrollierte</tspan><tspan x="688" dy="20">Aktion</tspan></text>
+  </g>
+
+  <text class="caption" x="420" y="298" text-anchor="middle">AUTONOMIE INNERHALB DEFINIERTER GRENZEN</text>
+</svg>
