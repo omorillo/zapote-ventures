@@ -151,6 +151,30 @@
     .architecture-frame{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:24px;box-shadow:0 10px 28px -16px rgba(0,0,0,.5)}
     .architecture-frame svg{display:block;width:100%;max-width:1200px;height:auto;margin:0 auto}
     .architecture-caption{color:var(--muted);font-size:14px;margin-top:12px;max-width:70ch}
+
+    .explainer{margin:8px 0 40px;background:var(--surface);border:1px solid var(--divider);border-radius:16px;padding:28px 24px}
+    .explainer-lead{font-size:14px;color:var(--muted);margin-bottom:16px;text-align:center}
+    .explainer-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+    .explainer-tab{font-family:var(--font);font-size:13.5px;font-weight:600;padding:10px 16px;min-height:44px;border-radius:4px;border:1.5px solid var(--control-border);background:var(--bg);color:var(--muted);cursor:pointer;transition:background .15s,color .15s}
+    .explainer-tab:hover{color:var(--text)}
+    .explainer-tab[aria-pressed="true"]{background:var(--control-border);color:var(--bg)}
+    .explainer-svg-wrap{max-width:420px;margin:0 auto}
+    .explainer-svg{display:block;width:100%;height:auto}
+    .explainer-caption{font-size:14px;color:var(--muted);text-align:center;max-width:56ch;margin:20px auto 0;line-height:1.6;min-height:44px}
+    .ex-branch, .ex-outcome{transition:opacity .3s ease}
+    .ex-outcome-box{transition:fill .3s ease, stroke .3s ease}
+    [data-outcome="allowed"] .ex-blocked, [data-outcome="allowed"] .ex-approval{opacity:.35}
+    [data-outcome="approval"] .ex-blocked, [data-outcome="approval"] .ex-allowed{opacity:.35}
+    [data-outcome="blocked"] .ex-approval, [data-outcome="blocked"] .ex-allowed{opacity:.35}
+    [data-outcome="allowed"] .ex-allowed .ex-outcome-box{stroke:var(--text);stroke-width:2.5}
+    [data-outcome="approval"] .ex-approval .ex-outcome-box{stroke:var(--text);stroke-width:2.5}
+    [data-outcome="blocked"] .ex-blocked .ex-outcome-box{stroke:var(--coral);stroke-width:2.5}
+    .ex-pulse{opacity:0}
+    .ex-pulse.play{animation:ex-flow .6s ease forwards}
+    @keyframes ex-flow{0%{offset-distance:0%;opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+    @media (prefers-reduced-motion: reduce){
+      .explainer *{transition-duration:.01s !important;animation:none !important}
+    }
     .mobile-diagram{display:none}
     @media(min-width:641px){.desktop-diagram .architecture-frame svg{min-width:940px}}
     @media(max-width:640px){.desktop-diagram{display:none}.mobile-diagram{display:block}}
@@ -326,6 +350,64 @@
       <div class="section-eyebrow">Governance by Design</div>
       <h2>Governance durch Architektur – nicht durch Prompting</h2>
       <p class="section-sub">Das LLM ist nur eine Komponente. Enterprise-taugliche Agentic AI braucht unabhängige Kontrollen für Identität, Autorisierung, Policies, Tool-Zugriff, Monitoring, Evaluation und menschliche Freigaben.</p>
+    </div>
+
+    <div class="explainer">
+      <p class="explainer-lead">Wie eine vorgeschlagene Aktion verarbeitet wird:</p>
+      <div class="explainer-tabs" role="group" aria-label="Ergebnis auswählen">
+        <button type="button" class="explainer-tab" data-outcome="allowed" aria-pressed="true" data-caption="Erlaubt: Die Aktion erfüllt alle Berechtigungen und Policies und wird über die kontrollierte Tool-/API-Ebene ausgeführt.">Erlaubt</button>
+        <button type="button" class="explainer-tab" data-outcome="approval" aria-pressed="false" data-caption="Freigabe erforderlich: Die Kontrollinstanz verlangt eine menschliche Freigabe, bevor die Aktion ausgeführt werden darf.">Freigabe erforderlich</button>
+        <button type="button" class="explainer-tab" data-outcome="blocked" aria-pressed="false" data-caption="Blockiert: Die Aktion verletzt Berechtigungen oder Policies und wird nicht ausgeführt.">Blockiert</button>
+      </div>
+      <div class="explainer-svg-wrap">
+        <svg class="explainer-svg" data-outcome="allowed" viewBox="0 0 340 300" role="img" aria-labelledby="ex-title-de">
+          <title id="ex-title-de">Interaktiver Überblick: mögliche Ergebnisse einer vorgeschlagenen Aktion</title>
+          <defs>
+            <marker id="ex-arrow-de" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill="var(--muted)"/>
+            </marker>
+          </defs>
+          <rect x="20" y="16" width="300" height="64" rx="12" fill="var(--bg)" stroke="var(--control-border)" stroke-width="2"/>
+          <text x="170" y="42" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="var(--text)">Agent</text>
+          <text x="170" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="var(--muted)">schlägt Aktion vor</text>
+          <line x1="170" y1="80" x2="170" y2="98" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-de)"/>
+          <rect x="20" y="102" width="300" height="64" rx="12" fill="var(--bg)" stroke="var(--control-border)" stroke-width="2"/>
+          <text x="170" y="128" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="var(--text)">Kontrollinstanz</text>
+          <text x="170" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="var(--muted)">prüft Berechtigungen</text>
+          <g class="ex-branch ex-blocked">
+            <line x1="170" y1="166" x2="72" y2="200" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-de)"/>
+            <g class="ex-outcome">
+              <rect class="ex-outcome-box" x="24" y="204" width="92" height="78" rx="10" fill="var(--bg)" stroke="var(--divider)" stroke-width="2"/>
+              <circle cx="70" cy="226" r="10" fill="none" stroke="var(--coral)" stroke-width="2"/>
+              <line x1="63.5" y1="219.5" x2="76.5" y2="232.5" stroke="var(--coral)" stroke-width="2"/>
+              <text x="70" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="var(--text)">Blockiert</text>
+            </g>
+          </g>
+          <g class="ex-branch ex-approval">
+            <line x1="170" y1="166" x2="170" y2="200" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-de)"/>
+            <g class="ex-outcome">
+              <rect class="ex-outcome-box" x="124" y="204" width="92" height="78" rx="10" fill="var(--bg)" stroke="var(--divider)" stroke-width="2"/>
+              <circle cx="170" cy="226" r="10" fill="none" stroke="var(--control-border)" stroke-width="2"/>
+              <line x1="170" y1="226" x2="170" y2="220" stroke="var(--control-border)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="170" y1="226" x2="174.5" y2="228.5" stroke="var(--control-border)" stroke-width="2" stroke-linecap="round"/>
+              <text x="170" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="var(--text)">Freigabe</text>
+            </g>
+          </g>
+          <g class="ex-branch ex-allowed">
+            <line x1="170" y1="166" x2="268" y2="200" stroke="var(--muted)" stroke-width="2" marker-end="url(#ex-arrow-de)"/>
+            <g class="ex-outcome">
+              <rect class="ex-outcome-box" x="224" y="204" width="92" height="78" rx="10" fill="var(--bg)" stroke="var(--divider)" stroke-width="2"/>
+              <circle cx="270" cy="226" r="10" fill="none" stroke="var(--control-border)" stroke-width="2"/>
+              <path d="M264,226 l4,5 l9,-10" fill="none" stroke="var(--control-border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="270" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="var(--text)">Erlaubt</text>
+            </g>
+          </g>
+          <circle class="ex-pulse" data-for="blocked" r="4" fill="var(--coral)" style="offset-path:path('M170,166 L72,200')"/>
+          <circle class="ex-pulse" data-for="approval" r="4" fill="var(--text)" style="offset-path:path('M170,166 L170,200')"/>
+          <circle class="ex-pulse" data-for="allowed" r="4" fill="var(--text)" style="offset-path:path('M170,166 L268,200')"/>
+        </svg>
+      </div>
+      <p class="explainer-caption">Erlaubt: Die Aktion erfüllt alle Berechtigungen und Policies und wird über die kontrollierte Tool-/API-Ebene ausgeführt.</p>
     </div>
 
     <figure class="architecture-visual desktop-diagram">
@@ -722,5 +804,6 @@
   </div>
 </footer>
 
+<script src="explainer.js" defer></script>
 </body>
 </html>
